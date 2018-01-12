@@ -8,7 +8,7 @@ const app        = express();
 require('pretty-error').start();
 
 // CONFIG
-const PORT       = process.env.PORT || 3000;
+const PORT       = process.env.PORT || 3030;
 const mongoURI   = process.env.MONGODB_URI || 'mongodb://localhost/tooliebox'
 const doingwork    = process.env.TOOLSYO || 'd0ingWork'
 
