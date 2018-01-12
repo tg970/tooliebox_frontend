@@ -8,13 +8,12 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
       console.log('oneLang:',response.data);
       this.lang = response.data;
       this.tools = response.data.tools
+      this.numTools = this.tools.length
     }, error => {
       console.error(error.message);
   }).catch(err => console.error('Catch', err));
 
   this.select = (id) => {
-    console.log($scope);
-    console.log($scope.$parent);
     $scope.$parent.ctrl.tool = id
   }
 

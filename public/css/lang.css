@@ -1,5 +1,13 @@
 .lang_wrapper{
   min-height: 1500px;
+  background: #E0E0E0;
+}
+.langHeader{
+  display: flex;
+  flex-direction: row;
+}
+.LangHeadWrap{
+  margin-left: 2em;
 }
 .oneTool{
   display: flex;
@@ -7,11 +15,13 @@
   justify-content: space-between;
   padding-left: 1em;
 }
-
 .toolAvatar{
   width: 10%;
   height: 100%;
   margin: auto;
+}
+.md-subhead{
+  padding-top: 0 !important;  
 }
 .toolSubHead{
   display: flex;
