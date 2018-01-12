@@ -13,6 +13,13 @@
   height: 100%;
   margin: auto;
 }
+.toolSubHead{
+  display: flex;
+  flex-direction: row;
+}
+.toolSubHeadCtn{
+  margin-left: 1em;
+}
 .oneToolContent{
   width: 70%;
 }
@@ -31,4 +38,5 @@
 }
 .noLink{
   text-decoration: none;
+  color: black;
 }

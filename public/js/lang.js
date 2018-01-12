@@ -13,6 +13,8 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
   }).catch(err => console.error('Catch', err));
 
   this.select = (id) => {
+    console.log($scope);
+    console.log($scope.$parent);
     $scope.$parent.ctrl.tool = id
   }
 
