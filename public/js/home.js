@@ -17,5 +17,3 @@ app.controller('HomeController', [ '$http', '$route', '$scope', '$location', '$m
     $scope.$parent.ctrl.lang = id
   }
 }]);
-
-console.log(user);
