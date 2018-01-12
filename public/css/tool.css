@@ -1,4 +1,8 @@
+.taginfo{
+  margin-left: 4em;
+}
 .showtags{
+  margin-left: 4em;
   display: flex;
   flex-flow: row;
 }
@@ -7,4 +11,10 @@ a.atag{
 
 h2.h2tag{
   margin-right: 1em;
+}
+
+.replframe{
+ display: block;
+ margin: auto;
+ text-align: center;
 }
