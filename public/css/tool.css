@@ -1,0 +1,10 @@
+.showtags{
+  display: flex;
+  flex-flow: row;
+}
+a.atag{
+}
+
+h2.h2tag{
+  margin-right: 1em;
+}
