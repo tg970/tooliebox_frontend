@@ -7,6 +7,22 @@ app.controller('MainController', [
     let CtrlUrl = $location.url();
     console.log('MainController:', CtrlUrl);
     this.test = "hello"
+
+    $http({
+      method: 'GET',
+      url: 'http://localhost:3000/languages'
+    }).then(response => {
+      console.log('allLangs:',response.data);
+      this.langs = response.data;
+    }, error => {
+      console.error(error.message);
+    }).catch(err => console.error('Catch', err));
+
+    this.select = (id) => {
+      console.log(id);
+    }
+
+
 }]);
 
 app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function($routeProvider,$locationProvider, $mdThemingProvider) {
