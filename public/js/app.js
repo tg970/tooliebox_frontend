@@ -124,11 +124,11 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
     templateUrl: 'partials/about.html',
   });
 
-  // $routeProvider.when('/instructions', {
-  //   templateUrl: 'partials/instructions.html',
-  //   controller: 'MainController as ctrl',
-  //   controllerAs: 'ctrl'
-  // });
+  $routeProvider.when('/toolie', {
+    templateUrl: 'partials/oneTool.html',
+    controller: 'ToolController as ctrl',
+    controllerAs: 'ctrl'
+  });
 
   $routeProvider.otherwise({
     redirectTo: '/'
