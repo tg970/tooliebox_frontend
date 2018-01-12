@@ -1,27 +1,106 @@
-console.log('yep');
+
 const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial']);
 
-app.controller('MainController', [
-  '$http', '$route', '$scope', '$location', '$mdDialog',
-  function($http, $route, $scope, $location, $mdDialog) {
-    let CtrlUrl = $location.url();
-    console.log('MainController:', CtrlUrl);
-    this.test = "hello"
+let user = {};
+const updateUser = (data) => {
+  user = data;
+  user.logged = true;
+  return
+}
 
+app.controller('BodyController', ['$http', '$scope', '$location', function($http, $scope, $location) {
+  // User States:
+  this.lang = null
+  this.hello = 'test test test'
+  this.user = user;
+  this.showLogin = false;
+  if (user.logged) {
+    this.userName = this.user.username;
+  }
+
+  // Check Server for Session
+  // $http({
+  //     method: 'get',
+  //     url: '/sessions',
+  //   }).then(response => {
+  //     //console.log('sessionReq:', response.data.user);
+  //     if (response.data.user) {
+  //       user = response.data.user;
+  //       user.logged = true;
+  //       this.user = user
+  //       this.userName = user.username
+  //     }
+  //     console.log('userInfo:', user);
+  //   }, error => {
+  //     console.log('error:', error);
+  //   }).catch(err => console.error('Catch:', err))
+
+  // Register
+  this.registerUser = () => {
+    //console.log('register: ', this.newUserForm);
     $http({
-      method: 'GET',
-      url: 'http://localhost:3000/languages'
+      url: '/users',
+      method: 'post',
+      data: this.newUserForm
     }).then(response => {
-      console.log('allLangs:',response.data);
-      this.langs = response.data;
-    }, error => {
-      console.error(error.message);
-    }).catch(err => console.error('Catch', err));
+      updateUser(response.data);
+      this.user = user;
+      this.userName = response.data.username;
+      this.newUserForm = {};
+      this.error = null;
+      this.showLogin = false;
+      $scope.$broadcast('updateAuth', { data: this.user })
+    }, ex => {
+      console.log(ex.data.err, ex.statusText);
+      this.registerError = 'Hmm, maybe try a different username...';
+   })
+   .catch(err => this.registerError = 'Something went wrong' );
+   };
 
-    this.select = (id) => {
-      console.log(id);
-    }
+  // Login
+  this.loginUser = () => {
+    $http({
+      url: '/sessions/login',
+      method: 'post',
+      data: this.loginForm
+    }).then(response =>  {
+      updateUser(response.data);
+      this.user = user;
+      this.userName = response.data.username;
+      this.loginForm = {};
+      this.error = null;
+      this.showLogin = false;
+      this.loginError = null;
+      $scope.$broadcast('updateAuth', { data: this.user })
+    }, ex => {
+       this.loginError = `Hmm, we can't find a match...`;
+    })
+    .catch(err => this.loginError = `Hmm, we can't find a match...` );
+  };
 
+  // Logout
+  this.logout = () => {
+    $http({ url: '/sessions/logout', method: 'delete' })
+    .then((response) => {
+       user = {};
+       this.user = null;
+       this.userName = null;
+       $scope.$broadcast('logout', { data: this.user })
+       $location.path('/');
+    }, ex => {
+       console.log('ex', ex.data.err);
+       this.loginError = ex.statusText;
+    })
+    .catch(err => this.loginError = 'Something went wrong' );
+  }
+
+  this.openLogin = () => {
+    this.showLogin = true;
+  }
+
+  this.closeLogin = () => {
+    this.showLogin = false;
+  }
 
 }]);
 
@@ -31,15 +110,15 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
 
   $routeProvider.when('/', {
     templateUrl: 'partials/home.html',
-    controller: 'MainController as ctrl',
+    controller: 'HomeController as ctrl',
     controllerAs: 'ctrl'
   });
 
-  // $routeProvider.when('/viewSystems', {
-  //   templateUrl: 'partials/system.html',
-  //   controller: 'SystemController as ctrl',
-  //   controllerAs: 'ctrl'
-  // });
+  $routeProvider.when('/language', {
+    templateUrl: 'partials/oneLang.html',
+    controller: 'LangController as ctrl',
+    controllerAs: 'ctrl'
+  });
 
   $routeProvider.when('/about', {
     templateUrl: 'partials/about.html',

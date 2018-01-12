@@ -1,6 +1,6 @@
 <div class="logoWrapper">
   <div class="logo" ng-repeat="lang in ctrl.langs">
-    <div class="logo" ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div>
+    <a ng-href="/language"><div class="logo" ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div></a>
   </div>
   <!-- <div class="logo" ng-include="'img/svg/atom.svg'"></div>
   <div class="logo" ng-include="'img/svg/css3.svg'"></div>
