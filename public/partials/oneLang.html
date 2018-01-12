@@ -1,14 +1,36 @@
-<h1>{{ctrl.id}}</h1>
-<div class="logo" ng-include="ctrl.lang.img_url"></div>
-<a href="{{ctrl.lang.dox_url}}">{{ctrl.lang.dox_url}}</a>
-<form class="lang_search" action="index.html" method="post">
-  <input type="text" ng-model="ctrl.searchterm">
-</form>
-<hr>
-<div class="lang_toolie" ng-repeat="tool in ctrl.tools" >
-  <a ng-href="/toolie"><h2 ng-click="ctrl.select(tool.id)">{{tool.title}}</h2></a>
-  <h2>{{tool.description}}</h2>
-  <h2>{{tool.repl_url}}</h2>
-
-  <hr>
+<div class="lang_wrapper">
+  <div class="langHeader">
+    <a href="{{ctrl.lang.dox_url}}"><div class="logo md-whiteframe-10dp" ng-include="ctrl.lang.img_url"></div></a>
+    <div class="LangHeadWrap">
+      <h1>{{ctrl.lang.name}}</h1>
+      <h3>Tools: {{ctrl.numTools}}</h3>
+      <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Documentation</md-button>
+    </div>
+  </div>
+  <md-card class="md-whiteframe-5dp oneTool" ng-repeat="tool in ctrl.tools">
+    <div class="toolAvatar" ng-include="ctrl.lang.img_url"></div>
+    <div class="oneToolContent">
+      <md-card-title>
+        <md-card-title-text>
+          <a class="noLink" ng-href="/toolie"><span ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
+          <span class="md-subhead">Created by: {{tool.created_by}}</span>
+          <div class="toolSubHead">
+            <span class="md-subhead">{{ctrl.lang.name}}</span>
+            <span class="md-subhead toolSubHeadCtn">( {{tool.num_belts}} )</span>
+          </div>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p class="toolDesc" md-truncate>{{tool.description}}</p>
+        <small><ul class="toolTags">
+          Tags:
+          <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}}</a></li>
+        </ul></small>
+      </md-card-content>
+    </div>
+    <md-card-actions class="oneToolBtns" layout="column" layout-align="center center">
+      <md-button>Show More</md-button>
+      <md-button>Add to MyBelt</md-button>
+    </md-card-actions>
+  </md-card>
 </div>
