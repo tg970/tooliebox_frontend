@@ -1,14 +1,35 @@
-<h1>{{ctrl.id}}</h1>
-<div class="logo" ng-include="ctrl.lang.img_url"></div>
-<a href="{{ctrl.lang.dox_url}}">{{ctrl.lang.dox_url}}</a>
-<form class="lang_search" action="index.html" method="post">
-  <input type="text" ng-model="ctrl.searchterm">
-</form>
-<hr>
-<div class="lang_toolie" ng-repeat="tool in ctrl.tools" >
-  <a ng-href="/toolie"><h2 ng-click="ctrl.select(tool.id)">{{tool.title}}</h2></a>
-  <h2>{{tool.description}}</h2>
-  <h2>{{tool.repl_url}}</h2>
+<div class="lang_wrapper">
+  <a href="{{ctrl.lang.dox_url}}"><div class="logo" ng-include="ctrl.lang.img_url"></div></a>
 
-  <hr>
+  <!-- <div class="lang_toolie" ng-repeat="tool in ctrl.tools" >
+    <a ng-href="/toolie"><h2 ng-click="ctrl.select(tool.id)">{{tool.title}}</h2></a>
+    <h2>{{tool.description}}</h2>
+    <h2>{{tool.repl_url}}</h2>
+
+    <hr>
+  </div> -->
+
+  <md-card class="oneTool" ng-repeat="tool in ctrl.tools">
+    <div class="toolAvatar" ng-include="ctrl.lang.img_url"></div>
+    <div class="oneToolContent">
+      <md-card-title>
+        <md-card-title-text>
+          <a ng-href="/toolie"><span ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
+          <span class="md-subhead">{{ctrl.lang.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>{{tool.description}}</p>
+      </md-card-content>
+    </div>
+    <md-card-actions class="oneToolBtns" layout="column" layout-align="start center">
+      <md-button>Action 1</md-button>
+      <md-button>Action 2</md-button>
+      <!-- <md-card-icon-actions>
+        <md-button class="md-icon-button" aria-label="toggle">
+          <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
+        </md-button>
+      </md-card-icon-actions> -->
+    </md-card-actions>
+  </md-card>
 </div>

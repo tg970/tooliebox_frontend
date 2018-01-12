@@ -1,0 +1,21 @@
+.lang_wrapper{
+  min-height: 1500px;
+}
+.oneTool{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1em;
+}
+
+.toolAvatar{
+  width: 10%;
+  height: 100%;
+  margin: auto;
+}
+.oneToolContent{
+  width: 70%;
+}
+.oneToolBtns{
+  width: 20%;
+}
