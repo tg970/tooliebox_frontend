@@ -1,5 +1,12 @@
-app.controller('LangController', [ '$http', '$route', '$scope', '$location', '$mdDialog', function($http, $route, $scope, $location, $mdDialog) {
+app.filter('trustUrl', ['$sce', function ($sce) {
+  return function(url) {
+    return $sce.trustAsResourceUrl(url);
+  };
+}]);
+
+app.controller('LangController', [ '$http', '$route', '$scope', '$location', '$mdDialog','$sce', function($http, $route, $scope, $location, $mdDialog,$sce) {
   this.id = $scope.$parent.ctrl.lang
+  this.searchterm = "";
   $http({
     method: 'GET',
     url: `http://localhost:3000/languages/${this.id}`
@@ -10,5 +17,6 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', '$m
   }, error => {
     console.error(error.message);
   }).catch(err => console.error('Catch', err));
+
 
 }]);

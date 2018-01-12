@@ -1,3 +1,14 @@
 <h1>{{ctrl.id}}</h1>
 <div class="logo" ng-include="ctrl.lang.img_url"></div>
-<a href="ctrl.lang.dox_url">{{ctrl.lang.dox_url}}</a>
+<a href="{{ctrl.lang.dox_url}}">{{ctrl.lang.dox_url}}</a>
+<form class="lang_search" action="index.html" method="post">
+  <input type="text" ng-model="ctrl.searchterm">
+</form>
+<hr>
+<div class="lang_toolie" ng-repeat="tool in ctrl.tools" >
+  <h2>{{tool.title}}</h2>
+  <h2>{{tool.description}}</h2>
+  <h2>{{tool.repl_url}}</h2>
+  <iframe height="400px" width="100%" ng-src= "{{ tool.repl_url | trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+  <hr>
+</div>
