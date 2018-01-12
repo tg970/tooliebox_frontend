@@ -1,6 +1,6 @@
-app.filter('trustUrl', ['$sce', function ($sce) {
+app.filter('replUrl', ['$sce', function ($sce) {
   return function(url) {
-    return $sce.trustAsResourceUrl(url);
+    return $sce.trustAsResourceUrl(url+"?lite=true");
   };
 }]);
 

@@ -1,1 +1,3 @@
-<iframe height="400px" width="100%" ng-src= "{{ ctrl.tool.repl_url | trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<h1>{{ctrl.tool.title}}</h1>
+<h2>{{ctrl.tool.description}}</h2>
+<iframe height="400px" width="100%" ng-src= "{{ ctrl.tool.repl_url| replUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
