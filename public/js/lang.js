@@ -12,5 +12,8 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
     console.error(error.message);
   }).catch(err => console.error('Catch', err));
 
+  this.select = (id) => {
+    $scope.$parent.ctrl.tool = id
+  }
 
 }]);

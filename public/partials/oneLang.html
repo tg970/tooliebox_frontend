@@ -6,7 +6,7 @@
 </form>
 <hr>
 <div class="lang_toolie" ng-repeat="tool in ctrl.tools" >
-  <h2>{{tool.title}}</h2>
+  <a ng-href="/toolie"><h2 ng-click="ctrl.select(tool.id)">{{tool.title}}</h2></a>
   <h2>{{tool.description}}</h2>
   <h2>{{tool.repl_url}}</h2>
 

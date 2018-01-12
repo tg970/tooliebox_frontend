@@ -12,7 +12,7 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     url: `http://localhost:3000/languages/${this.lang}/tools/${this.id}`
   }).then(response => {
     console.log('oneTool:',response.data);
-    this.tool = response.data.tools
+    this.tool = response.data
   }, error => {
     console.error(error.message);
   }).catch(err => console.error('Catch', err));
