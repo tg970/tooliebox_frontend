@@ -1,4 +1,10 @@
-app.controller('ToolController', [ '$http', '$route', '$scope', '$location', '$mdDialog', function($http, $route, $scope, $location, $mdDialog) {
+app.filter('trustUrl', ['$sce', function ($sce) {
+  return function(url) {
+    return $sce.trustAsResourceUrl(url);
+  };
+}]);
+
+app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http, $scope, $mdDialog) {
   this.lang = $scope.$parent.ctrl.lang
   this.id = $scope.$parent.ctrl.tool
   $http({
@@ -11,5 +17,5 @@ app.controller('ToolController', [ '$http', '$route', '$scope', '$location', '$m
     console.error(error.message);
   }).catch(err => console.error('Catch', err));
 
-  
+
 }]);

@@ -1,10 +1,4 @@
-app.filter('trustUrl', ['$sce', function ($sce) {
-  return function(url) {
-    return $sce.trustAsResourceUrl(url);
-  };
-}]);
-
-app.controller('LangController', [ '$http', '$route', '$scope', '$location', '$mdDialog','$sce', function($http, $route, $scope, $location, $mdDialog,$sce) {
+app.controller('LangController', [ '$http', '$route', '$scope', '$location', function($http, $route, $scope, $location) {
   this.id = $scope.$parent.ctrl.lang
   this.searchterm = "";
   $http({
