@@ -1,19 +1,5 @@
 <div class="logoWrapper">
-  <div class="logo" ng-repeat="lang in ctrl.langs">
-    <a ng-href="/language"><div class="logo" ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div></a>
-  </div>
-  <!-- <div class="logo" ng-include="'img/svg/atom.svg'"></div>
-  <div class="logo" ng-include="'img/svg/css3.svg'"></div>
-  <div class="logo" ng-include="'img/svg/express.svg'"></div>
-  <div class="logo" ng-include="'img/svg/github.svg'"></div>
-  <div class="logo" ng-include="'img/svg/heroku.svg'"></div>
-  <div class="logo" ng-include="'img/svg/html5.svg'"></div>
-  <div class="logo" ng-include="'img/svg/js.svg'"></div>
-  <div class="logo" ng-include="'img/svg/jquery.svg'"></div>
-  <div class="logo" ng-include="'img/svg/mongodb.svg'"></div>
-  <div class="logo" ng-include="'img/svg/node.svg'"></div>
-  <div class="logo" ng-include="'img/svg/postgres.svg'"></div>
-  <div class="logo" ng-include="'img/svg/rails.svg'"></div>
-  <div class="logo" ng-include="'img/svg/react.svg'"></div>
-  <div class="logo" ng-include="'img/svg/ruby.svg'"></div> -->
+  <md-whiteframe class="logo md-whiteframe-10dp" ng-repeat="lang in ctrl.langs">
+    <a ng-href="/language"><div ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div></a>
+  </md-whiteframe>
 </div>
