@@ -20,6 +20,10 @@
       </md-card-title>
       <md-card-content>
         <p>{{tool.description}}</p>
+        <small><ul class="toolTags">
+          Tags:
+          <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}}</a></li>
+        </ul></small>
       </md-card-content>
     </div>
     <md-card-actions class="oneToolBtns" layout="column" layout-align="start center">

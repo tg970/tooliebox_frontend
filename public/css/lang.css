@@ -19,3 +19,16 @@
 .oneToolBtns{
   width: 20%;
 }
+.toolTags{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-left: 0;
+}
+.toolTagsLi{
+  display: inline-block;
+  margin-left: .25em;
+}
+.noLink{
+  text-decoration: none;
+}
