@@ -40,8 +40,8 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
   });
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('blue-grey')
+    .primaryPalette('blue')
     .accentPalette('blue')
-    .warnPalette('pink');
+    .warnPalette('blue');
 
 }]);
