@@ -40,17 +40,22 @@ a.a_tag{
 h2.h2_tag{
   margin-right: 1em;
 }
-
+.framediv{
+  width: 100%;
+  text-align: center;
+}
 .repl_frame{
- margin: auto;
- display: block;
+ /* margin: auto;
+ display: block; */
 
  /* text-align: center; */
+ /* width: 200px; */
 }
 .comments_button{
   margin-top: 2em;
   float: right;
   margin-right: 4em;
+  padding: 1px 7px 2px;
   height: 2.5em;
   width: 6.5em;
   color: white;
