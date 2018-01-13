@@ -1,13 +1,13 @@
 <div class="lang_wrapper">
   <div class="langHeader">
-    <a href="{{ctrl.lang.dox_url}}"><div class="logo md-whiteframe-10dp" ng-include="ctrl.lang.img_url"></div></a>
+    <a href="{{ctrl.lang.dox_url}}"><div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url"></div></a>
     <div class="LangHeadWrap">
       <h1>{{ctrl.lang.name}}</h1>
       <h3>Tools: {{ctrl.numTools}}</h3>
       <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Documentation</md-button>
     </div>
   </div>
-  <md-card class="md-whiteframe-5dp oneTool" ng-repeat="tool in ctrl.tools">
+  <md-card class="oneTool" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 15" ng-mouseleave="height = 5" ng-repeat="tool in ctrl.tools">
     <div class="toolAvatar" ng-include="ctrl.lang.img_url"></div>
     <div class="oneToolContent">
       <md-card-title>
