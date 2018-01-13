@@ -1,0 +1,45 @@
+<md-dialog aria-label="Add a Step" layout="column" class="md-inline-form">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Register</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon aria-label="Close dialog"><i class="fas fa-times"></i></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+  <form name="newForm">
+    <md-input-container class="md-block">
+      <label>Name</label>
+      <input ng-model="newInfo.name" required>
+      <div ng-messages="newInfo.name.$error">
+        <div ng-message="required">This is required</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Email</label>
+      <input ng-model="newInfo.email" required>
+      <div ng-messages="newInfo.email.$error">
+        <div ng-message="required">We actually don't know how to email you</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Username</label>
+      <input ng-model="newInfo.username" required>
+      <div ng-messages="newInfo.username.$error">
+        <div ng-message="required">This is required</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Password</label>
+      <input ng-model="newInfo.password" required>
+      <div ng-messages="newInfo.password.$error">
+        <div ng-message="required">Password is required</div>
+      </div>
+    </md-input-container>
+    <div>
+      <md-button type="submit" ng-click="submit(newInfo)">Submit</md-button>
+    </div>
+  </form>
+</md-dialog>

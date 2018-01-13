@@ -1,0 +1,35 @@
+<md-dialog aria-label="Create a New System" layout="column" class="md-inline-form">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Login</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog"><i class="fas fa-times"></i></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+  <md-content layout-padding>
+    <div>
+      <form name="newForm">
+
+        <md-input-container class="md-block">
+          <label>Username</label>
+          <input ng-model="newInfo.username" required>
+          <div ng-messages="newInfo.username.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input ng-model="newInfo.password" required>
+          <div ng-messages="newInfo.password.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <div>
+          <md-button type="submit" ng-click="submit(newInfo)">Login</md-button>
+        </div>
+      </form>
+</md-dialog>
