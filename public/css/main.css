@@ -17,7 +17,7 @@ nav {
   display: flex;
   align-items: center;
 }
-.tooliebox > h1 {
+.tooliebox h1 {
   font-family: 'Rock Salt', cursive;
   font-size: 32px;
   margin: 0;
