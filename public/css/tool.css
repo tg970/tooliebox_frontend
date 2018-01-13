@@ -1,20 +1,96 @@
-.taginfo{
-  margin-left: 4em;
+.toolcontainer{
+  width:90%;
+  margin: auto;
+  display: block;
 }
-.showtags{
+
+.show_logo{
+  width:8em;
+  height:8em;
+  margin-left:1em;
+  margin-bottom:1em;
+  margin-right:1em;
+  float:left;
+}
+
+.add_belt{
+  float: right;
+  margin-right: 4em;
+  height: 2.5em;
+  width: 6.5em;
+  color: white;
+  background-color: limegreen;
+  border-radius: 5px;
+
+}
+
+.tag_info{
+  margin-left: 4em;
+  width: 70%;
+}
+.show_tags{
+  margin-top: 1em;
   margin-left: 4em;
   display: flex;
   flex-flow: row;
 }
-a.atag{
+a.a_tag{
 }
 
-h2.h2tag{
+h2.h2_tag{
   margin-right: 1em;
 }
 
-.replframe{
- display: block;
+.repl_frame{
  margin: auto;
- text-align: center;
+ display: block;
+
+ /* text-align: center; */
+}
+.comments_button{
+  margin-top: 2em;
+  float: right;
+  margin-right: 4em;
+  height: 2.5em;
+  width: 6.5em;
+  color: white;
+  background-color: limegreen;
+  border-radius: 5px;
+
+}
+
+.comments_container{
+
+}
+
+.comment{
+  width: 50%;
+  height: 10em;
+  margin: auto;
+  display: block;
+
+}
+
+.comment_img{
+  /* width:10em;
+  height:10em; */
+  width: 33%;
+  height: 99%;
+  margin: 0;
+  float: left;
+}
+.comment_user{
+  margin: 0;
+  font-size: 1.5em;
+  width: 65%;
+  float: right;
+  height:10%;
+}
+.comment_h3{
+  margin: 0;
+  margin-top: .5em;
+  font-size: 1.5em;
+  width: 65%;
+  float: right;
+  height:65%;
 }
