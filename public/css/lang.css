@@ -1,0 +1,52 @@
+.lang_wrapper{
+  min-height: 1500px;
+  background: #E0E0E0;
+}
+.langHeader{
+  display: flex;
+  flex-direction: row;
+}
+.LangHeadWrap{
+  margin-left: 2em;
+}
+.oneTool{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1em;
+}
+.toolAvatar{
+  width: 10%;
+  height: 100%;
+  margin: auto;
+}
+.md-subhead{
+  padding-top: 0 !important;  
+}
+.toolSubHead{
+  display: flex;
+  flex-direction: row;
+}
+.toolSubHeadCtn{
+  margin-left: 1em;
+}
+.oneToolContent{
+  width: 70%;
+}
+.oneToolBtns{
+  width: 20%;
+}
+.toolTags{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-left: 0;
+}
+.toolTagsLi{
+  display: inline-block;
+  margin-left: .25em;
+}
+.noLink{
+  text-decoration: none;
+  color: black;
+}
