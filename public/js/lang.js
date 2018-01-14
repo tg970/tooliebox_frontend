@@ -1,5 +1,5 @@
 app.controller('LangController', [ '$http', '$route', '$scope', '$location', function($http, $route, $scope, $location) {
-  this.id = $scope.$parent.ctrl.lang
+  this.id = $scope.$parent.ctrl.lang.id
   this.searchterm = "";
   $http({
       method: 'GET',

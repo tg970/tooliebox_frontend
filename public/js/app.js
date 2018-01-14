@@ -14,6 +14,7 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
   this.hello = 'test test test'
   this.user = user;
   this.showLogin = false;
+  this.lang = {};
   if (user.logged) {
     this.userName = this.user.username;
   }
