@@ -73,12 +73,14 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     ]
     // end of getcomments
   };
-  // this.getComments();
+  this.getComments();
   this.postComment = () => {
+    // temp in future make this post to comments model
     this.comment.user = this.user;
     console.log(this.comment);
+    this.comments.push(JSON.parse(JSON.stringify(this.comment)))
+    this.comment.text = "";
   }
-  //console.log(this.comments);
 
 
 }]);
