@@ -5,6 +5,7 @@
       <h1>{{ctrl.lang.name}}</h1>
       <h3>Tools: {{ctrl.numTools}}</h3>
       <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Documentation</md-button>
+      <md-button class="md-primary" ng-href="/toolie/create">Create Tool</md-button>
     </div>
   </div>
   <md-card class="oneTool" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 15" ng-mouseleave="height = 5" ng-repeat="tool in ctrl.tools">
