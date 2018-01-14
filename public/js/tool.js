@@ -7,6 +7,13 @@ app.filter('trustUrl', ['$sce', function ($sce) {
 app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http, $scope, $mdDialog) {
   this.tool = {};
   this.comments = [];
+  this.comment= {
+    text: ""
+  }
+  this.user = {
+    username:"Default",
+    img:"https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+  }
   this.lang = $scope.$parent.ctrl.lang;
   this.id = $scope.$parent.ctrl.tool;
   this.getTool = () => {
@@ -67,6 +74,10 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     // end of getcomments
   };
   // this.getComments();
+  this.postComment = () => {
+    this.comment.user = this.user;
+    console.log(this.comment);
+  }
   //console.log(this.comments);
 
 

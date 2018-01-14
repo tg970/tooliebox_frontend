@@ -32,15 +32,35 @@
 
   <button class="comments_button" ng-click="ctrl.getComments()">Get Comments</button>
 
-  <hr style="height:4em; visibility:hidden;" />
 
+  <hr style="height:4em; visibility:hidden;" />
   <div class="comments_container">
-    <div class="comment" ng-repeat="comment in ctrl.comments">
-      <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
-      <h3 class="comment_h3">{{comment.text}}</h3>
-      <h3 class="comment_user">{{comment.user.username}}</h3>
-    </div>
+
+    <style type="text/css">
+    .inputimg {
+      background: url('{{ctrl.user.img}}') ;
+      background-size: 100% 100%;
+    }
+  </style>
+
+    <div class="newcomment_div">
+      <form class="comment_form" ng-submit="ctrl.postComment()">
+        <button class="inputimg comment_button c_input" type="submit">
+          <h2>Post Comment</h2>
+
+        </button>
+        <textarea type="text" class="comment_text c_input" ng-model="ctrl.comment.text">
+      </textarea >
+    </form>
   </div>
 
-  <!-- end tool container -->
+
+  <div class="comment" ng-repeat="comment in ctrl.comments">
+    <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
+    <h3 class="comment_h3">{{comment.text}}</h3>
+    <h3 class="comment_user">{{comment.user.username}}</h3>
+  </div>
+</div>
+
+<!-- end tool container -->
 </div>
