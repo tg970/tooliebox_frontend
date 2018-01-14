@@ -65,6 +65,29 @@ h2.h2_tag{
 
 }
 
+.newcomment_div{
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+.c_input{
+  box-sizing: border-box;
+  height: 10em;
+}
+.comment_form{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+}
+.comment_text{
+  width: 65%;
+}
+.comment_button{
+  width: 33%;
+  float: left;
+}
+
 .comments_container{
 
 }
@@ -74,7 +97,6 @@ h2.h2_tag{
   height: 10em;
   margin: auto;
   display: block;
-
 }
 
 .comment_img{
