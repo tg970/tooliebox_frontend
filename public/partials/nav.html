@@ -1,9 +1,10 @@
 <div class="nav">
   <div class="tooliebox">
-    <h3>ToolieBox</h3>
+    <a class="noLink" href="/"><h1>ToolieBox</h1></a>
   </div>
   <div class="navBox">
-    <h6>Login</h6>
-    <h6>Register</h6>
+    <md-button ng-if="!ctrl.user.logged" class="navBtn" ng-click="ctrl.openLogin($event)">Login</md-button>
+    <md-button ng-if="ctrl.user.logged" class="navBtn" ng-click="ctrl.logout">Logout</md-button>
+    <md-button ng-if="!ctrl.user.logged" class="navBtn" ng-click="ctrl.openRegister($event)">Register</md-button>
   </div>
 </div>

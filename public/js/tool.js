@@ -7,7 +7,7 @@ app.filter('trustUrl', ['$sce', function ($sce) {
 app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http, $scope, $mdDialog) {
   this.tool = {};
   this.comments = [];
-  this.lang_id = $scope.$parent.ctrl.lang;
+  this.lang = $scope.$parent.ctrl.lang;
   this.id = $scope.$parent.ctrl.tool;
   this.getTool = () => {
     $http({
@@ -24,20 +24,20 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
   };
   this.getTool();
 
-  this.getLang = () => {
-    $http({
-      method: "GET",
-      url: "http://localhost:3000/languages/" + this.lang_id
-    })
-    .then((response) => {
-      this.lang = response.data;
-      console.log("Tool Language: "+this.lang);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }
-  this.getLang();
+  // this.getLang = () => {
+  //   $http({
+  //     method: "GET",
+  //     url: "http://localhost:3000/languages/" + this.lang_id
+  //   })
+  //   .then((response) => {
+  //     this.lang = response.data;
+  //     console.log("Tool Language: ", this.lang);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   })
+  // }
+  // this.getLang();
 
   this.getComments = () => {
     // temp will get from a database
@@ -67,7 +67,7 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     // end of getcomments
   };
   // this.getComments();
-  console.log(this.comments);
+  //console.log(this.comments);
 
 
 }]);

@@ -15,6 +15,7 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
 
   this.select = (id) => {
     $scope.$parent.ctrl.tool = id
+    $scope.$parent.ctrl.lang = this.lang
   }
 
 }]);

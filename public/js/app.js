@@ -8,7 +8,7 @@ const updateUser = (data) => {
   return
 }
 
-app.controller('BodyController', ['$http', '$scope', '$location', function($http, $scope, $location) {
+app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   // User States:
   this.lang = null
   this.hello = 'test test test'
@@ -35,49 +35,6 @@ app.controller('BodyController', ['$http', '$scope', '$location', function($http
   //     console.log('error:', error);
   //   }).catch(err => console.error('Catch:', err))
 
-  // Register
-  this.registerUser = () => {
-    //console.log('register: ', this.newUserForm);
-    $http({
-      url: '/users',
-      method: 'post',
-      data: this.newUserForm
-    }).then(response => {
-      updateUser(response.data);
-      this.user = user;
-      this.userName = response.data.username;
-      this.newUserForm = {};
-      this.error = null;
-      this.showLogin = false;
-      $scope.$broadcast('updateAuth', { data: this.user })
-    }, ex => {
-      console.log(ex.data.err, ex.statusText);
-      this.registerError = 'Hmm, maybe try a different username...';
-   })
-   .catch(err => this.registerError = 'Something went wrong' );
-   };
-
-  // Login
-  this.loginUser = () => {
-    $http({
-      url: '/sessions/login',
-      method: 'post',
-      data: this.loginForm
-    }).then(response =>  {
-      updateUser(response.data);
-      this.user = user;
-      this.userName = response.data.username;
-      this.loginForm = {};
-      this.error = null;
-      this.showLogin = false;
-      this.loginError = null;
-      $scope.$broadcast('updateAuth', { data: this.user })
-    }, ex => {
-       this.loginError = `Hmm, we can't find a match...`;
-    })
-    .catch(err => this.loginError = `Hmm, we can't find a match...` );
-  };
-
   // Logout
   this.logout = () => {
     $http({ url: '/sessions/logout', method: 'delete' })
@@ -94,12 +51,83 @@ app.controller('BodyController', ['$http', '$scope', '$location', function($http
     .catch(err => this.loginError = 'Something went wrong' );
   }
 
-  this.openLogin = () => {
-    this.showLogin = true;
+  function FormController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.submit = function(newInfo) {
+      if (!$scope.newForm.$invalid) {
+        $mdDialog.hide(newInfo);
+      }
+    };
+
+    $scope.newInfo = {};
+  };
+
+  this.openLogin = (ev) => {
+    $mdDialog.show({
+      controller: FormController,
+      templateUrl: 'partials/login.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+    })
+    .then((newInfo) => {
+      console.log('login request:', newInfo);
+      $http({
+          method: 'PUT',
+          url: '/sessions/post',
+          data: newInfo
+        }).then(response => {
+          console.log('login succesful:', response.data);
+          updateUser(response.data);
+          this.user = user;
+          this.userName = response.data.username;
+          this.error = null;
+          this.loginError = null;
+          $scope.$broadcast('updateAuth', { data: this.user })
+        }, (error) => {
+          console.log('login error:', error);
+          this.openLogin(ev)
+        }).catch(err => console.error('Catch', err))
+    }, function() {
+      console.log('cancel dialog');;
+    });
   }
 
-  this.closeLogin = () => {
-    this.showLogin = false;
+  this.openRegister = (ev) => {
+    $mdDialog.show({
+      controller: FormController,
+      templateUrl: 'partials/register.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+    })
+    .then((newInfo) => {
+      console.log('register request:', newInfo);
+      $http({
+          method: 'PUT',
+          url: '/users/post',
+          data: newInfo
+        }).then(response => {
+          console.log('register succesful:', response.data);
+          updateUser(response.data);
+          this.user = user;
+          this.userName = response.data.username;
+          this.error = null;
+          $scope.$broadcast('updateAuth', { data: this.user })
+        }, (error) => {
+          console.log('login error:', error);
+          this.openRegister(ev)
+        }).catch(err => console.error('Catch', err))
+    }, function() {
+      console.log('cancel dialog');;
+    });
   }
 
 }]);
