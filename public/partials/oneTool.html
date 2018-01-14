@@ -1,53 +1,53 @@
 <div class="tool_container">
 
-<div class="language">
-  <div class="show_logo" ng-include="ctrl.lang.img_url"></div>
-</div>
-<a ng-href="/toolbelt">
-<button class="add_belt">+ Tool Belt</button>
-</a>
-<div class="tag_info">
-  <h1>{{ctrl.tool.title}}</h1>
-  <h2>{{ctrl.tool.description}}</h2>
-</div>
-
-<div class="show_tags">
-  <div ng-repeat="tag in ctrl.tool.tags">
-<a class="a_tag" ng-href="/tag">
-  <h2 class = "h2_tag" ng-click="ctrl.selectTag(tag.id)">
-    {{tag.text}}
-  </h2>
-</a>
-</div>
-
-
-
-</div>
-
-<div class="framediv">
-
-
-<iframe class="repl_frame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-</div>
-
-
-
-<button class="comments_button" ng-click="ctrl.getComments()">Get Comments</button>
-
-<br>
-<br>
-<br>
-<br>
-<hr>
-<br>
-
-<div class="comments_container">
-  <div class="comment" ng-repeat="comment in ctrl.comments">
-    <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
-    <h3 class="comment_h3">{{comment.text}}</h3>
-    <h3 class="comment_user">{{comment.user.username}}</h3>
+  <div class="language">
+    <div class="show_logo" ng-include="ctrl.lang.img_url"></div>
   </div>
-</div>
+  <a ng-href="/toolbelt">
+    <button class="add_belt">+ Tool Belt</button>
+  </a>
+  <div class="tag_info">
+    <h1>{{ctrl.tool.title}}</h1>
+    <h2>{{ctrl.tool.description}}</h2>
+  </div>
 
-<!-- end tool container -->
+  <div class="show_tags">
+    <div ng-repeat="tag in ctrl.tool.tags">
+      <a class="a_tag" ng-href="/tag">
+        <h2 class = "h2_tag" ng-click="ctrl.selectTag(tag.id)">
+          {{tag.text}}
+        </h2>
+      </a>
+    </div>
+
+
+
+  </div>
+
+  <div class="framediv">
+
+
+    <iframe class="repl_frame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+  </div>
+
+
+
+  <button class="comments_button" ng-click="ctrl.getComments()">Get Comments</button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="comments_container">
+    <div class="comment" ng-repeat="comment in ctrl.comments">
+      <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
+      <h3 class="comment_h3">{{comment.text}}</h3>
+      <h3 class="comment_user">{{comment.user.username}}</h3>
+    </div>
+  </div>
+
+  <!-- end tool container -->
 </div>
