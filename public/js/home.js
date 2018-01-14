@@ -2,6 +2,7 @@ app.controller('HomeController', [ '$http', '$route', '$scope', '$location', '$m
   let CtrlUrl = $location.url();
   console.log('MainController:', CtrlUrl);
   this.test = "hello"
+  this.delayTooltip = 750;
 
   $http({
       method: 'GET',
