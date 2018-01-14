@@ -30,16 +30,9 @@
     <iframe class="repl_frame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
   </div>
 
-
-
   <button class="comments_button" ng-click="ctrl.getComments()">Get Comments</button>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <hr style="height:4em; visibility:hidden;" />
 
   <div class="comments_container">
     <div class="comment" ng-repeat="comment in ctrl.comments">
