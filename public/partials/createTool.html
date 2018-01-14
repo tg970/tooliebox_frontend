@@ -1,0 +1,34 @@
+<h1>Hello</h1>
+<form name="newForm">
+  <md-input-container class="md-block">
+    <label>Language</label>
+    <input ng-model="newInfo.language" required>
+    <div ng-messages="newInfo.language.$error">
+      <div ng-message="required">This is required</div>
+    </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>Title</label>
+    <input ng-model="newInfo.title" required>
+    <div ng-messages="newInfo.title.$error">
+      <div ng-message="required">Give your tool a name</div>
+    </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>Description</label>
+    <input ng-model="newInfo.username" required>
+    <div ng-messages="newInfo.username.$error">
+      <div ng-message="required">Tell us about it, how does it work?</div>
+    </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>Link</label>
+    <input ng-model="newInfo.repl_url" required>
+    <div ng-messages="newInfo.password.$error">
+      <div ng-message="required">A code example is required</div>
+    </div>
+  </md-input-container>
+  <div>
+    <md-button type="submit" ng-click="submit(newInfo)">Submit</md-button>
+  </div>
+</form>
