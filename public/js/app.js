@@ -158,6 +158,12 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
     controllerAs: 'ctrl'
   });
 
+  $routeProvider.when('/toolie/create', {
+    templateUrl: 'partials/createTool.html',
+    controller: 'LangController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
   $routeProvider.otherwise({
     redirectTo: '/'
   });
