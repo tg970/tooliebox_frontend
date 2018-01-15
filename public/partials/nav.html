@@ -4,6 +4,7 @@
   </div>
   <div class="navBox">
     <md-button ng-if="!ctrl.user.logged" class="navBtn" ng-click="ctrl.openLogin($event)">Login</md-button>
+    <p>|</p>
     <md-button ng-if="ctrl.user.logged" class="navBtn" ng-click="ctrl.logout">Logout</md-button>
     <md-button ng-if="!ctrl.user.logged" class="navBtn" ng-click="ctrl.openRegister($event)">Register</md-button>
   </div>
