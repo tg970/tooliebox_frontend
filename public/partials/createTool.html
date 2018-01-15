@@ -16,15 +16,15 @@
   </md-input-container>
   <md-input-container class="md-block">
     <label>Description</label>
-    <input ng-model="newInfo.username" required>
-    <div ng-messages="newInfo.username.$error">
+    <input ng-model="newInfo.description" required>
+    <div ng-messages="newInfo.description.$error">
       <div ng-message="required">Tell us about it, how does it work?</div>
     </div>
   </md-input-container>
   <md-input-container class="md-block">
     <label>Link</label>
     <input ng-model="newInfo.repl_url" required>
-    <div ng-messages="newInfo.password.$error">
+    <div ng-messages="newInfo.repl_url.$error">
       <div ng-message="required">A code example is required</div>
     </div>
   </md-input-container>
