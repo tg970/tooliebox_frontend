@@ -3,9 +3,13 @@
     <a href="{{ctrl.lang.dox_url}}"><div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url"></div></a>
     <div class="LangHeadWrap">
       <h1>{{ctrl.lang.name}}</h1>
-      <h3>Tools: {{ctrl.numTools}}</h3>
-      <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Documentation</md-button>
-      <md-button class="md-primary" ng-href="/toolie/create">Create Tool</md-button>
+      <div class="LangHeadWrapTtlTools">
+        <h3>Dev Tools Contributed:</h3> <h2>{{ctrl.numTools}}</h2>
+      </div>
+      <div class="LangHeadWrapLinks">
+        <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Developer's Documentation</md-button>
+        <md-button class="md-primary" ng-href="/toolie/create">Add a Snippet or Dev Tool</md-button>
+      </div>
     </div>
   </div>
   <div ng-include="'partials/toolieCards.html'"></div>

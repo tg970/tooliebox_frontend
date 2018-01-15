@@ -1,52 +1,87 @@
-.lang_wrapper{
-  min-height: 1500px;
+.lang_wrapper {
+  height: auto;
+  max-width: 800px;
   background: #E0E0E0;
+  margin: auto;
 }
-.langHeader{
+.langHeader {
   display: flex;
   flex-direction: row;
+  background: white;
 }
-.LangHeadWrap{
+.LangHeadWrap {
   margin-left: 2em;
+  display: flex;
+  flex-direction: column;
 }
-.oneTool{
+
+.LangHeadWrap h1 {
+  padding-top: 15px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 40px;
+}
+
+.LangHeadWrapTtlTools {
+  display: flex;
+  justify-content: row;
+}
+
+.LangHeadWrap h3 {
+  margin-top: -15px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 24px;
+}
+
+.LangHeadWrap h2 {
+  margin-top: -22px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 32px;
+  margin-left: 20px;
+}
+
+.LangHeadWrapLinks {
+  display: flex;
+  justify-content: column;
+}
+
+.oneTool {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-left: 1em;
 }
-.toolAvatar{
+.toolAvatar {
   width: 10%;
   height: 100%;
   margin: auto;
 }
-.md-subhead{
-  padding-top: 0 !important;  
+.md-subhead {
+  padding-top: 0 !important;
 }
-.toolSubHead{
+.toolSubHead {
   display: flex;
   flex-direction: row;
 }
-.toolSubHeadCtn{
+.toolSubHeadCtn {
   margin-left: 1em;
 }
-.oneToolContent{
+.oneToolContent {
   width: 70%;
 }
-.oneToolBtns{
+.oneToolBtns {
   width: 20%;
 }
-.toolTags{
+.toolTags {
   display: flex;
   flex-direction: row;
   list-style: none;
   padding-left: 0;
 }
-.toolTagsLi{
+.toolTagsLi {
   display: inline-block;
   margin-left: .25em;
 }
-.noLink{
+.noLink {
   text-decoration: none;
   color: black;
 }

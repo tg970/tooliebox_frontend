@@ -16,7 +16,7 @@ nav {
   margin: auto;
   background-color: black;
 }
-.nav{
+.nav {
   border-bottom: 1px solid black;
   height: 4.75em;
 }
@@ -26,7 +26,7 @@ nav {
   justify-content: space-between;
   color: white;
 }
-.tooliebox{
+.tooliebox {
   height: 100%;
 }
 .tooliebox h1 {
@@ -45,7 +45,7 @@ p {
   font-size: 22px;
 }
 
-.navBtn{
+.navBtn {
   margin: 1em;
 }
 
@@ -99,6 +99,9 @@ p {
   max-width: 800px;
   margin: auto;
   padding-bottom: 100px;
+}
+md-content {
+  background: lightgrey;
 }
 
 md-content {
