@@ -25,6 +25,7 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
       this.temp = response.data;
       this.temp.repl_url += "?lite=true";
       this.tool = this.temp;
+      this.tags = response.data.tags;
     }, error => {
       console.error(error.message);
     }).catch(err => console.error('Catch', err));
@@ -81,6 +82,9 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     this.comments.push(JSON.parse(JSON.stringify(this.comment)))
     this.comment.text = "";
   }
-
+  this.selectTag=(id) => {
+    console.log("Tag ID: "+id);
+    $scope.$parent.ctrl.tag = id
+  }
 
 }]);

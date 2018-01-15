@@ -154,6 +154,12 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
     controllerAs: 'ctrl'
   });
 
+  $routeProvider.when('/tag', {
+    templateUrl: 'partials/tag.html',
+    controller: 'TagController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
   $routeProvider.otherwise({
     redirectTo: '/'
   });

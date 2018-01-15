@@ -11,16 +11,7 @@
     <h2>{{ctrl.tool.description}}</h2>
   </div>
 
-  <div class="show_tags">
-    <div ng-repeat="tag in ctrl.tool.tags">
-      <a class="a_tag" ng-href="/tag">
-        <h2 class = "h2_tag" ng-click="ctrl.selectTag(tag.id)">
-          {{tag.text}}
-        </h2>
-      </a>
-    </div>
-
-
+  <div ng-include="'partials/manyTags.html'">
 
   </div>
 
