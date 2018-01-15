@@ -24,11 +24,25 @@
       <div ng-message="required">Tell us about it, how does it work?</div>
     </div>
   </md-input-container>
+  <label>Repl.it or Link</label>
   <md-input-container class="md-block">
-    <label>Link</label>
+    <md-radio-group ng-model="newInfo.repl" ng-init="newInfo.repl='true'">
+      <md-radio-button ng-click="ctrl.toggleRepl()" value="true">This Toolie has a Repl Snippet</md-radio-button>
+      <md-radio-button ng-click="ctrl.toggleRepl()" value="false">This Toolie has a URL to a code example </md-radio-button>
+    </md-radio-group>
+  </md-input-container>
+  <md-input-container ng-if="ctrl.repl" class="md-block">
+    <label>Repl.it URL</label>
     <input ng-model="newInfo.repl_url" required>
     <div ng-messages="newInfo.repl_url.$error">
-      <div ng-message="required">A code example is required</div>
+      <div ng-message="required">Please paste in the entire Repl.it URL</div>
+    </div>
+  </md-input-container>
+  <md-input-container ng-if="!ctrl.repl" class="md-block">
+    <label>Code Example URL</label>
+    <input ng-model="newInfo.link_url" required>
+    <div ng-messages="newInfo.link_url.$error">
+      <div ng-message="required">Please paste in a link to where we can see a code example</div>
     </div>
   </md-input-container>
   <div>
