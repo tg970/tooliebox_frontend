@@ -2,7 +2,6 @@
 <form name="newForm">
   <md-input-container class="md-block">
     <label>Language</label>
-    <!-- <input ng-model="newInfo.language" required> -->
     <md-select name="type" ng-model="newInfo.language" required>
       <md-option ng-repeat="lang in ctrl.selectLang" value={{lang.id}}>{{lang.name}}</md-option>
     </md-select>
