@@ -19,7 +19,7 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
   this.getTool = () => {
     $http({
       method: 'GET',
-      url: `http://localhost:3000/languages/${this.lang}/tools/${this.id}`
+      url: `http://localhost:3000/languages/${this.lang.id}/tools/${this.id}`
     }).then(response => {
       console.log('oneTool:',response.data);
       this.temp = response.data;
