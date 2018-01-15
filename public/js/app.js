@@ -2,11 +2,6 @@
 const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial']);
 
 let user = {};
-const updateUser = (data) => {
-  user = data;
-  user.logged = true;
-  return
-}
 
 app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   // User States:
@@ -83,14 +78,12 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
       $http({
           method: 'POST',
           url: 'http://localhost:3000/users/login',
-          data: newInfo
+          data: { user: newInfo }
         }).then(response => {
           console.log('login succesful:', response.data);
-          // updateUser(response.data);
-          // this.user = user;
-          // this.userName = response.data.username;
-          // this.error = null;
-          // this.loginError = null;
+          localStorage.setItem('token', JSON.stringify(response.data.token));
+          user = response.data.user
+          this.user = response.data.user;
           // $scope.$broadcast('updateAuth', { data: this.user })
         }, (error) => {
           console.log('login error:', error);
@@ -114,14 +107,10 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
       $http({
           method: 'POST',
           url: 'http://localhost:3000/users',
-          data: newInfo
+          data: { user: newInfo }
         }).then(response => {
           console.log('register succesful:', response.data);
-          //updateUser(response.data);
-          // this.user = user;
-          // this.userName = response.data.username;
-          // this.error = null;
-          // $scope.$broadcast('updateAuth', { data: this.user })
+          return this.openLogin(ev)
         }, (error) => {
           console.log('login error:', error);
           this.openRegister(ev)
