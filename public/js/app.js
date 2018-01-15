@@ -3,6 +3,24 @@ const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial']);
 
 let user = {};
 
+function FormController($scope, $mdDialog) {
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+
+  $scope.submit = function(newInfo) {
+    if (!$scope.newForm.$invalid) {
+      $mdDialog.hide(newInfo);
+    }
+  };
+
+  $scope.newInfo = {};
+};
+
 app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   // User States:
   this.lang = null
@@ -46,24 +64,6 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
     })
     .catch(err => this.loginError = 'Something went wrong' );
   }
-
-  function FormController($scope, $mdDialog) {
-    $scope.hide = function() {
-      $mdDialog.hide();
-    };
-
-    $scope.cancel = function() {
-      $mdDialog.cancel();
-    };
-
-    $scope.submit = function(newInfo) {
-      if (!$scope.newForm.$invalid) {
-        $mdDialog.hide(newInfo);
-      }
-    };
-
-    $scope.newInfo = {};
-  };
 
   this.openLogin = (ev) => {
     $mdDialog.show({
@@ -150,7 +150,7 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
 
   $routeProvider.when('/toolie/create', {
     templateUrl: 'partials/createTool.html',
-    controller: 'LangController as ctrl',
+    controller: 'CreateController as ctrl',
     controllerAs: 'ctrl'
   });
 
@@ -160,7 +160,7 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
 
   $mdThemingProvider.theme('default')
     .primaryPalette('blue')
-    .accentPalette('blue')
-    .warnPalette('blue');
+    .accentPalette('orange')
+    .warnPalette('red');
 
 }]);
