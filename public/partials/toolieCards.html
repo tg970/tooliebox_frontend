@@ -1,22 +1,23 @@
 <md-card class="oneTool" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 15" ng-mouseleave="height = 5" ng-repeat="tool in ctrl.tools">
   <div class="toolAvatar" ng-include="ctrl.lang.img_url"></div>
   <div class="oneToolContent">
-    <md-card-title>
+    <md-card-title class="topText">
       <md-card-title-text>
-        <a class="noLink" ng-href="/toolie"><span ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
-        <span class="md-subhead">Created by: {{tool.created_by}}</span>
+        <a class="noLink" ng-href="/toolie"><span  ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
+        <span class="md-subhead"><small>Created by: {{tool.created_by}}</small></span>
         <div class="toolSubHead">
-          <span class="md-subhead">{{ctrl.lang.name}}</span>
-          <span class="md-subhead toolSubHeadCtn">( {{tool.num_belts}} )</span>
+          <span class="md-subhead toolSubHeadCtn"><small>Added to User's Tool Belts: ( {{tool.num_belts}} )</small></span>
         </div>
+        <span class="md-subhead">
+          <small><ul class=toolTags>
+            Tags:
+            <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}},</a></li>
+          </ul></small>
+        </span>
       </md-card-title-text>
     </md-card-title>
     <md-card-content>
       <p class="toolDesc" md-truncate>{{tool.description}}</p>
-      <small><ul class="toolTags">
-        Tags:
-        <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}}</a></li>
-      </ul></small>
     </md-card-content>
   </div>
   <md-card-actions class="oneToolBtns" layout="column" layout-align="center center">
