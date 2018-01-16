@@ -83,7 +83,8 @@ app.controller("TagController", [ '$http', '$route', '$scope', '$location', func
       method:"GET",
       url:"http://localhost:3000/tags/"
     }).then((response) => {
-      this.allTags= response.data;
+      console.log('get all tags response:', response.data);
+      this.allTags = response.data;
     }).then(() => {
       this.getTag(this.id);
     }).catch((error) => {
