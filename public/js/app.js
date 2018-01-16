@@ -32,23 +32,6 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
     this.userName = this.user.username;
   }
 
-  // Check Server for Session
-  // $http({
-  //     method: 'get',
-  //     url: '/sessions',
-  //   }).then(response => {
-  //     //console.log('sessionReq:', response.data.user);
-  //     if (response.data.user) {
-  //       user = response.data.user;
-  //       user.logged = true;
-  //       this.user = user
-  //       this.userName = user.username
-  //     }
-  //     console.log('userInfo:', user);
-  //   }, error => {
-  //     console.log('error:', error);
-  //   }).catch(err => console.error('Catch:', err))
-
   // Logout
   this.logout = () => {
     $http({ url: '/sessions/logout', method: 'delete' })
