@@ -1,4 +1,4 @@
-<md-card class="oneTool" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 15" ng-mouseleave="height = 5" ng-repeat="tool in ctrl.tools">
+<md-card class="oneTool" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 15" ng-mouseleave="height = 5" ng-repeat="tool in ctrl.tools | unique: 'id'">
   <div class="toolAvatar" ng-include="ctrl.lang.img_url"></div>
   <div class="oneToolContent">
     <md-card-title class="topText">

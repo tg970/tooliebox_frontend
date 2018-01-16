@@ -1,5 +1,5 @@
 
-const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial']);
+const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial','ui']);
 
 let user = {};
 
@@ -158,6 +158,12 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
   $routeProvider.when('/workbench', {
     templateUrl: 'partials/workbench.html',
     controller: 'WorkBenchController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
+  $routeProvider.when('/tag', {
+    templateUrl: 'partials/tag.html',
+    controller: 'TagController as ctrl',
     controllerAs: 'ctrl'
   });
 
