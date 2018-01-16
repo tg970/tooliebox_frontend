@@ -1,14 +1,26 @@
+/* FONT IMPORTS */
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
-
-/* * {
-  border: 1px solid gold;
-} */
 
 body {
   background-color: black;
   height: auto;
 }
+/* ----------------------- */
+/* LOGO STYLES */
+.tooliebox {
+  height: 100%;
+}
 
+.tooliebox h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 32px;
+  color: white;
+  margin: 0;
+  margin-left: 2em;
+}
+
+/* ----------------------- */
+/* NAVIGATION STYLES */
 nav {
   max-width: 1100px;
   padding-top: 15px;
@@ -26,16 +38,7 @@ nav {
   justify-content: space-between;
   color: white;
 }
-.tooliebox {
-  height: 100%;
-}
-.tooliebox h1 {
-  font-family: 'Rock Salt', cursive;
-  font-size: 32px;
-  color: white;
-  margin: 0;
-  margin-left: 2em;
-}
+
 .navBox {
   width: 10em;
   margin-right: 5em;
@@ -49,12 +52,16 @@ p {
   margin: 1em;
 }
 
+/* ----------------------- */
+/* MAIN CONTENT AREA */
 .mainContent {
   background-color: white;
   max-width: 1100px;
   margin: auto;
 }
 
+/* ----------------------- */
+/* GET STARTED */
 .getStarted {
   margin-top: -3px;
   display: flex;
@@ -79,6 +86,8 @@ p {
   margin-bottom: 40px;
 }
 
+/* ----------------------- */
+/* ICONOGRAPHIC MENU */
 .logoWrapper {
   height: 100%;
   display: flex;
@@ -95,6 +104,8 @@ p {
   background-color: #FFF;
 }
 
+/* ----------------------- */
+/* SEARCH */
 .search {
   max-width: 800px;
   margin: auto;
@@ -104,10 +115,8 @@ md-content {
   background: lightgrey;
 }
 
-md-content {
-  background: lightgrey;
-}
-
+/* ----------------------- */
+/* FOOTER */
 footer {
   max-width: 1100px;
   height: 50px;
