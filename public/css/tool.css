@@ -8,7 +8,7 @@
 }
 
 /* ----------------------- */
-/* ONE TOOL DETAIL */
+/* ONE TOOL HEADER DETAIL */
 .toolHeader {
   display: flex;
   flex-direction: row;
@@ -53,35 +53,17 @@
   margin-top: 10px;
 }
 
-/*
-
-.show_tags {
-  margin-top: 1em;
-  margin-left: 4em;
-  height: 70px;
-  display: flex;
-  flex-flow: row;
-}
-
-a.a_tag {
-}
-
-h2.h2_tag {
-  margin-right: 1em;
-} */
-
 /* ----------------------- */
-/* REPL.IT IFRAMED CONTENT */
+/* REPL.IT IFRAMED SNIPPET CONTENT */
 .iframeReplIt {
-  width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.repl_frame {
- /* margin: auto;
- display: block; */
 
- /* text-align: center; */
- /* width: 200px; */
+.replFrame {
+  border: 1px solid gray;
 }
 
 /* ----------------------- */
