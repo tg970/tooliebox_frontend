@@ -1,7 +1,19 @@
-app.controller('CreateController', [ '$http', '$route', '$scope', '$location', function($http, $route, $scope, $location) {
-  console.log('CreateController');
+app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location', function($http, $route, $scope, $location) {
+  console.log('WorkbenchController');
   this.selectLang = $scope.$parent.ctrl.langs
   this.repl = true
+
+  $http({
+      method: 'GET',
+      url: `http://localhost:3000/users/${user.id}`,
+      headers: { 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token')) }
+    }).then(response => {
+      console.log('User GET Response:', response.data);
+      // $scope.$parent.ctrl.tool = response.data.id
+      // $location.path('/toolie')
+    }, error => {
+      console.error(error.message);
+  }).catch(err => console.error('Catch', err));
 
   this.submit = (newInfo) => {
     console.log('submit create form:', newInfo);
