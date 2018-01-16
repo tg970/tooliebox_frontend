@@ -3,9 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 
-* {
-  border: 1px solid gold;
-}
 
 /* ----------------------- */
 /* CREATE A TOOLIE FORM */
@@ -14,6 +11,8 @@
   max-width: 1100px;
 }
 
+/* ----------------------- */
+/* FORM HEADER */
 .createCTA {
   font-family: 'Rock Salt', cursive;
   font-size: 38px;
