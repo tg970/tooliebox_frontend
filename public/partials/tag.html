@@ -1,5 +1,12 @@
 <div class="tag_container">
-  <h1>Search By Tags:</h1>
-  <div ng-include="'partials/manyTags.html'"></div>
+  <h1>Searching By Tags:</h1>
+  <div class="search_container">
+    <h2>Add A Tag To Search By</h2>
+    <input type="text" ng-model="searchText" placeholder="Tag">
+    <h2 ng-repeat="tag in ctrl.allTags | filter:searchText  " ng-click="ctrl.getTag(tag.id)">{{tag.text}}</h2>
+    <hr>
+    <h2>Searched By Currently</h2>
+    <h2 ng-repeat="tag in ctrl.tags" ng-click="ctrl.passiveTag(tag)">{{tag.text}}</h2>
+  </div>
  <div ng-include="'partials/toolieCards.html'"></div>
 </div>

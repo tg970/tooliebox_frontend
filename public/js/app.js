@@ -1,5 +1,5 @@
 
-const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial']);
+const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial','ui']);
 
 let user = {};
 
