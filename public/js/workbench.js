@@ -9,8 +9,8 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
       headers: { 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token')) }
     }).then(response => {
       console.log('User GET Response:', response.data);
-      // $scope.$parent.ctrl.tool = response.data.id
-      // $location.path('/toolie')
+      this.tools = response.data.tools
+      console.log(this.tools);
     }, error => {
       console.error(error.message);
   }).catch(err => console.error('Catch', err));
