@@ -83,7 +83,8 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
           console.log('login succesful:', response.data);
           localStorage.setItem('token', JSON.stringify(response.data.token));
           user = response.data.user
-          this.user = response.data.user;
+          user.logged = true
+          this.user = user;
           // $scope.$broadcast('updateAuth', { data: this.user })
         }, (error) => {
           console.log('login error:', error);
@@ -150,7 +151,13 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
 
   $routeProvider.when('/toolie/create', {
     templateUrl: 'partials/createTool.html',
-    controller: 'CreateController as ctrl',
+    controller: 'WorkBenchController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
+  $routeProvider.when('/workbench', {
+    templateUrl: 'partials/workbench.html',
+    controller: 'WorkBenchController as ctrl',
     controllerAs: 'ctrl'
   });
 
