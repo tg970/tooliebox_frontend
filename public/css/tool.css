@@ -1,60 +1,74 @@
-
-
-.toolcontainer{
-  width:90%;
+/* ----------------------- */
+/* ONE TOOL */
+.tool_wrapper {
+  height: auto;
+  max-width: 1100px;
+  background: #fff;
   margin: auto;
-  display: block;
 }
 
-.show_logo{
-  width:8em;
-  height:8em;
-  margin-left:1em;
-  margin-bottom:1em;
-  margin-right:1em;
-  float:left;
-}
-
-.add_belt{
-  float: right;
-  margin-right: 4em;
-  height: 2.5em;
-  width: 6.5em;
-  color: white;
-  background-color: limegreen;
-  border-radius: 5px;
-
-}
-
-.tag_info{
-  margin-left: 4em;
-  width: 70%;
-}
-.show_tags{
-  margin-top: 1em;
-  margin-left: 4em;
-  height: 70px;
+/* ----------------------- */
+/* ONE TOOL HEADER DETAIL */
+.toolHeader {
   display: flex;
-  flex-flow: row;
-}
-a.a_tag{
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: white;
 }
 
-h2.h2_tag{
-  margin-right: 1em;
+.toolDetail {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.framediv{
-  width: 100%;
-  text-align: center;
-}
-.repl_frame{
- /* margin: auto;
- display: block; */
 
- /* text-align: center; */
- /* width: 200px; */
+.toolDetail h1 {
+  padding-top: 35px;
+  font-family: 'Architects Daughter', sans-serif;
+  font-size: 28px;
 }
-.comments_button{
+
+.toolDetail h2 {
+  margin-top: -10px;
+  margin-bottom: -5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 450px;
+}
+
+.toolHeadWrapLinks {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-right: 25px;
+}
+
+.toolSubhead {
+  margin-top: 10px;
+}
+
+/* ----------------------- */
+/* REPL.IT IFRAMED SNIPPET CONTENT */
+.iframeReplIt {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.replFrame {
+  border: 1px solid gray;
+}
+
+/* ----------------------- */
+/* COMMENTS */
+.comments_button {
   margin-top: 2em;
   float: right;
   margin-right: 4em;
@@ -64,44 +78,45 @@ h2.h2_tag{
   color: white;
   background-color: limegreen;
   border-radius: 5px;
-
 }
 
-.newcomment_div{
+.newcomment_div {
   width: 50%;
   display: block;
   margin: auto;
 }
-.c_input{
+
+.c_input {
   box-sizing: border-box;
   height: 10em;
 }
-.comment_form{
+.comment_form {
   text-align: center;
   margin: 0;
   padding: 0;
-
 }
-.comment_text{
+
+.comment_text {
   width: 65%;
 }
-.comment_button{
+
+.comment_button {
   width: 33%;
   float: left;
 }
 
-.comments_container{
+/* .comments_container {
 
-}
+} */
 
-.comment{
+.comment {
   width: 50%;
   height: 10em;
   margin: auto;
   display: block;
 }
 
-.comment_img{
+.comment_img {
   /* width:10em;
   height:10em; */
   width: 33%;
@@ -109,14 +124,16 @@ h2.h2_tag{
   margin: 0;
   float: left;
 }
-.comment_user{
+
+.comment_user {
   margin: 0;
   font-size: 1.5em;
   width: 65%;
   float: right;
   height:10%;
 }
-.comment_h3{
+
+.comment_h3 {
   margin: 0;
   margin-top: .5em;
   font-size: 1.5em;
