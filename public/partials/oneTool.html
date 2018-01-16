@@ -1,34 +1,38 @@
-<div class="tool_container">
-
-  <div class="language">
-    <div class="show_logo" ng-include="ctrl.lang.img_url"></div>
+<div class="tool_wrapper">
+  <div class="toolHeader">
+    <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url">
+    </div>
+    <div class="toolDetail">
+      <h1>{{ctrl.tool.title}}</h1>
+      <h2>{{ctrl.tool.description}}</h2>
+      <md-card-title-text>
+        <a class="noLink" ng-href="/toolie"><span  ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
+        <span class="md-subhead"><small>Created by: {{tool.created_by}}</small></span>
+        <span class="md-subhead">
+          <small><ul class=toolTags>
+            Tags:
+            <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}},</a></li>
+          </ul></small>
+        </span>
+      </md-card-title-text>
+    </div>
+    <div class="toolHeadWrapLinks">
+      <md-button ng-href="/toolie" ng-click="ctrl.select(tool.id)">Add to MyBelt</md-button>
+      <md-button class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
+    </div>
   </div>
-  <a ng-href="/toolbelt">
-    <button class="add_belt">+ Tool Belt</button>
-  </a>
-  <div class="tag_info">
-    <h1>{{ctrl.tool.title}}</h1>
-    <h2>{{ctrl.tool.description}}</h2>
-  </div>
-
-  <div ng-include="'partials/manyTags.html'">
-
-  </div>
-
-  <div class="framediv">
-
-
+  <!-- REPL.IT IFRAMED CONTENT -->
+  <div class="iframeReplIr">
     <iframe class="repl_frame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
   </div>
 
+ <!-- COMMENTS -->
   <button class="comments_button" ng-click="ctrl.getComments()">Get Comments</button>
 
-
-  <hr style="height:4em; visibility:hidden;" />
+  <!-- <hr style="height:4em; visibility:hidden;" /> -->
   <div class="comments_container">
-
     <style type="text/css">
-    .inputimg {
+    .inputImg {
       background: url('{{ctrl.user.img}}') ;
       background-size: 100% 100%;
     }
