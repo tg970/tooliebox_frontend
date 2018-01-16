@@ -1,52 +1,133 @@
-.lang_wrapper{
-  min-height: 1500px;
-  background: #E0E0E0;
+/* FONT IMPORTS */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* ----------------------- */
+/* ONE LANGUAGE, MANY TOOLS */
+.lang_wrapper {
+  height: auto;
+  max-width: 1100px;
+  background: #fff;
+  margin: auto;
 }
-.langHeader{
+
+/* ----------------------- */
+/* LEADING LANGUAGE HEADER */
+.langHeader {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: white;
 }
-.LangHeadWrap{
-  margin-left: 2em;
-}
-.oneTool{
+
+.LangHeadWrap {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding-left: 1em;
+  flex-wrap: wrap;
 }
-.toolAvatar{
+
+.toolStats h1 {
+  padding-top: 35px;
+  margin-left: 35px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 40px;
+}
+
+.LangHeadWrapTtlTools {
+  display: flex;
+  justify-content: row;
+  flex-wrap: wrap;
+}
+
+.LangHeadWrap h3 {
+  margin-top: -25px;
+  margin-left: 35px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 24px;
+}
+
+.LangHeadWrap h2 {
+  margin-top: -32px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 32px;
+  margin-left: 20px;
+}
+
+.LangHeadWrapLinks {
+  display: flex;
+  flex-direction: column;
+  padding-top: 55px;
+  margin-left: 80px;
+  margin-right: 15px;
+}
+
+/* ----------------------- */
+/* INDEX OF TOOLS BELONGING TO A LANGUAGE */
+.toolsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ----------------------- */
+/* CARD STYLES FOR ONE TOOL */
+.oneTool {
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+
+.toolAvatar {
   width: 10%;
   height: 100%;
   margin: auto;
 }
-.md-subhead{
-  padding-top: 0 !important;  
+
+.topText {
+  padding-bottom: 10px;
 }
-.toolSubHead{
+
+.md-headline {
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 10px;
+}
+
+.md-subhead {
+  margin-top: -15px;
+}
+
+.toolSubHead {
   display: flex;
   flex-direction: row;
 }
-.toolSubHeadCtn{
-  margin-left: 1em;
+
+.toolDesc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  padding-top: -10px;
+  padding-bottom: 10px;
 }
-.oneToolContent{
+.oneToolContent {
+  padding-left: 15px;
   width: 70%;
 }
-.oneToolBtns{
+.oneToolBtns {
   width: 20%;
 }
-.toolTags{
+.toolTags {
   display: flex;
   flex-direction: row;
   list-style: none;
   padding-left: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
-.toolTagsLi{
+.toolTagsLi {
   display: inline-block;
-  margin-left: .25em;
 }
-.noLink{
+.noLink {
   text-decoration: none;
   color: black;
 }

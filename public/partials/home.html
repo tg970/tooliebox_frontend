@@ -1,17 +1,15 @@
 <div class="mainContent">
   <div class="getStarted">
     <h1>Getting Started</h1>
-    <h2>Find code snippets by language, technology or search</h2>
+    <p>Find code snippets by language, technology or search...</p>
   </div>
-
   <div class="logoWrapper">
     <md-whiteframe class="logo" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 20" ng-mouseleave="height = 5" ng-repeat="lang in ctrl.langs">
       <a ng-href="/language"><md-tooltip md-delay="ctrl.delayTooltip">{{lang.name}}</md-tooltip><div ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div></a>
     </md-whiteframe>
   </div>
-
   <div class="search">
-    <md-content md-theme="input" layout="column" layout-padding>
+    <md-content layout="column" layout-padding>
       <md-input-container style="padding-bottom: 0; margin-bottom: 0">
          <md-icon class="material-icons">&#128270;</md-icon>
          <input ng-model="search.notes" placeholder="Search">
