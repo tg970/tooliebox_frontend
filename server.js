@@ -15,6 +15,7 @@ app.use(express.static( 'public' ));
 app.use(morgan('dev'));
 
 app.get('/:whatever', (req, res) => res.redirect('/'))
+app.get('/:whatever/:whatever', (req, res) => res.redirect('/'))
 
 app.listen(PORT, () => {
    console.log('Server OK: ' + PORT);

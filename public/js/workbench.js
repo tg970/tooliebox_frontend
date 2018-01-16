@@ -16,6 +16,7 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
   }).catch(err => console.error('Catch', err));
 
   this.submit = (newInfo) => {
+    newInfo.user_id = user.id
     console.log('submit create form:', newInfo);
     $http({
         method: 'POST',
