@@ -50,7 +50,8 @@
       <md-button type="submit" ng-click="ctrl.submitEdit(newInfo)">Submit</md-button>
     </div>
   </form>
-  <div class="submit">
-    <md-button class="md-raised md-accent cancelbtn" ng-href="/toolie">Cancel</md-button>
+  <div class="submit cancelbtn">
+    <md-button class="md-raised md-accent" ng-href="/toolie">Cancel</md-button>
+    <md-button class="md-raised md-warn" ng-click="ctrl.deleteTool()">Delete Toolie</md-button>
   </div>
 </div>

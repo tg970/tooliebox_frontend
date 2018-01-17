@@ -68,4 +68,17 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
     }).catch(err => console.error('Catch', err));
   };
 
+  this.deleteTool = () => {
+    console.log('deleteTool:', $scope.$parent.ctrl.tool);
+    $http({
+        method: 'DELETE',
+        url: `${api}/tools/${$scope.$parent.ctrl.tool.id}`
+      }).then(response => {
+        console.log('Delete Response:', response);
+        $location.path('/')
+      }, error => {
+        console.error(error.message);
+    }).catch(err => console.error('Catch', err));
+  };
+
 }]);
