@@ -5,6 +5,7 @@ body {
   background-color: black;
   height: auto;
 }
+cursor: url(hand.cur), pointer;
 
 /* ----------------------- */
 /* LOGO STYLES */

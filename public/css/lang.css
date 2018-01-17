@@ -88,6 +88,7 @@
   display: flex;
   flex-direction: row;
   padding-left: 20px;
+  padding-bottom: 10px;
 }
 
 .toolAvatar {
@@ -103,6 +104,10 @@
 .md-headline {
   font-family: 'Roboto', sans-serif;
   padding-bottom: 10px;
+}
+
+.md-headline:hover {
+  color: blue;
 }
 
 .md-subhead {
@@ -130,6 +135,14 @@
   width: 20%;
 }
 
+.showMore {
+  color: blue;
+}
+
+.addToolBelt {
+  color: green;
+}
+
 .toolTags {
   display: flex;
   flex-direction: row;
@@ -148,13 +161,12 @@
   color: black;
 }
 
-/* ----------------------- */
-/* TAG SEARCH */
-
-.pointer {
-  cursor: pointer;
+.noLink:hover {
+  color: blue;
 }
 
+/* ----------------------- */
+/* TAG SEARCH */
 .TagHeadWrap {
   display: flex;
   flex-direction: column;
