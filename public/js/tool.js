@@ -26,7 +26,7 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
       this.temp.repl_url += "?lite=true";
       this.tool = this.temp;
       this.tags = response.data.tags;
-      this.comments = [];
+      this.comments = response.data.comments;
     }, error => {
       console.error(error.message);
     }).catch(err => console.error('Catch', err));
@@ -37,18 +37,16 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     newInfo.tool_id = this.id
     newInfo.user_id = user.id
     console.log('submit create form:', newInfo);
-    data = angular.copy(newInfo)
-    this.comments.push(data)
-    // $http({
-    //     method: 'POST',
-    //     url: `http://localhost:3000/languages/${newInfo.language}/tools`,
-    //     data: newInfo
-    //   }).then(response => {
-    //     console.log('Post New Tool Response:',response.data);
-    //     this.comments.push(response.data)
-    //   }, error => {
-    //     console.error(error.message);
-    // }).catch(err => console.error('Catch', err));
+    $http({
+        method: 'POST',
+        url: `http://localhost:3000/comments`,
+        data: newInfo
+      }).then(response => {
+        console.log('Post New Tool Response:',response.data);
+        this.comments.push(response.data)
+      }, error => {
+        console.error(error.message);
+    }).catch(err => console.error('Catch', err));
   };
 
   this.selectTag=(id) => {
