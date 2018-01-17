@@ -73,8 +73,9 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
           if (response.data.status == 200) {
             console.log('succesful login');
             localStorage.setItem('token', JSON.stringify(response.data.token));
-            user = response.data.user
+            user = JSON.parse(response.data.user)
             user.logged = true
+            console.log(user);
             this.user = user;
             this.error = false;
             $scope.$broadcast('updateAuth', { data: this.user })

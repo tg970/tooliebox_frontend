@@ -8,6 +8,7 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
   let CtrlUrl = $location.url();
   console.log('ToolController:', CtrlUrl);
   this.user = user;
+  console.log('this.user:', this.user);
   this.tool = {};
   this.comments = [];
   this.comment= {
