@@ -26,62 +26,31 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
       this.temp.repl_url += "?lite=true";
       this.tool = this.temp;
       this.tags = response.data.tags;
+      this.comments = [];
     }, error => {
       console.error(error.message);
     }).catch(err => console.error('Catch', err));
   };
   this.getTool();
 
-  // this.getLang = () => {
-  //   $http({
-  //     method: "GET",
-  //     url: "http://localhost:3000/languages/" + this.lang_id
-  //   })
-  //   .then((response) => {
-  //     this.lang = response.data;
-  //     console.log("Tool Language: ", this.lang);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   })
-  // }
-  // this.getLang();
-
-  this.getComments = () => {
-    // temp will get from a database
-    this.comments = [
-      {
-        text:"I love loops",
-        user:{
-          username:"Gary",
-          img:"https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-        }
-      },
-      {
-        text:"I hate loops they make me feel bad about being human. It's really quite depressing.",
-        user:{
-          username:"Gary",
-          img:"https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-        }
-      },
-      {
-        text:"I am indifferent about loops",
-        user:{
-          username:"Gary",
-          img:"https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-        }
-      }
-    ]
-    // end of getcomments
+  this.submit = (newInfo) => {
+    newInfo.tool_id = this.id
+    newInfo.user_id = user.id
+    console.log('submit create form:', newInfo);
+    data = angular.copy(newInfo)
+    this.comments.push(data)
+    // $http({
+    //     method: 'POST',
+    //     url: `http://localhost:3000/languages/${newInfo.language}/tools`,
+    //     data: newInfo
+    //   }).then(response => {
+    //     console.log('Post New Tool Response:',response.data);
+    //     this.comments.push(response.data)
+    //   }, error => {
+    //     console.error(error.message);
+    // }).catch(err => console.error('Catch', err));
   };
-  this.getComments();
-  this.postComment = () => {
-    // temp in future make this post to comments model
-    this.comment.user = this.user;
-    console.log(this.comment);
-    this.comments.push(JSON.parse(JSON.stringify(this.comment)))
-    this.comment.text = "";
-  }
+
   this.selectTag=(id) => {
     console.log("Tag ID: "+id);
     $scope.$parent.ctrl.tag = id

@@ -68,76 +68,39 @@
 
 /* ----------------------- */
 /* COMMENTS */
-.comments_button {
-  margin-top: 2em;
-  float: right;
-  margin-right: 4em;
-  padding: 1px 7px 2px;
-  height: 2.5em;
-  width: 6.5em;
-  color: white;
-  background-color: limegreen;
-  border-radius: 5px;
+.comments_container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-.newcomment_div {
-  width: 50%;
-  display: block;
-  margin: auto;
+.newcomment_div{
+  width: 600px;
 }
-
-.c_input {
-  box-sizing: border-box;
-  height: 10em;
+.comment_form{
+  width: 100%;
 }
-.comment_form {
-  text-align: center;
-  margin: 0;
-  padding: 0;
+.commentInput {
+  width: 80%;
 }
-
-.comment_text {
-  width: 65%;
+.commentSubmit{
+  width: 20%;
 }
-
-.comment_button {
-  width: 33%;
-  float: left;
+.commentsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-
-/* .comments_container {
-
-} */
-
-.comment {
-  width: 50%;
-  height: 10em;
-  margin: auto;
-  display: block;
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
 }
-
-.comment_img {
-  /* width:10em;
-  height:10em; */
-  width: 33%;
-  height: 99%;
-  margin: 0;
-  float: left;
-}
-
-.comment_user {
-  margin: 0;
-  font-size: 1.5em;
-  width: 65%;
-  float: right;
-  height:10%;
-}
-
-.comment_h3 {
-  margin: 0;
-  margin-top: .5em;
-  font-size: 1.5em;
-  width: 65%;
-  float: right;
-  height:65%;
+.comment{
+  width: 100%;
 }
