@@ -7,18 +7,18 @@
       <h1>{{ctrl.tool.title}}</h1>
       <h2>{{ctrl.tool.description}}</h2>
       <md-card-title-text>
-        <a class="noLink" ng-href="/toolie"><span  ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
-        <span class="md-subhead"><small>Created by: {{tool.created_by}}</small></span>
+        <span class="md-subhead"><small>Created by: {{ctrl.tool.created_by}}</small></span>
         <span class="md-subhead">
           <small><ul class=toolTags>
-            Tags: 
+            Tags:
             <li class="toolTagsLi" ng-repeat="tag in ctrl.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}},</a></li>
           </ul></small>
         </span>
       </md-card-title-text>
     </div>
     <div class="toolHeadWrapLinks">
-      <md-button ng-href="/toolie" ng-click="ctrl.select(tool.id)">Add to MyBelt</md-button>
+      <md-button ng-href="#" ng-click="ctrl.sumbit()">Add to MyBelt</md-button>
+      <md-button ng-click="ctrl.editToolie()">Edit Toolie</md-button>
       <md-button class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
     </div>
   </div>
@@ -63,11 +63,6 @@
      </md-list>
    </div>
    <md-divider ></md-divider>
-   <!-- <div class="comment" ng-repeat="comment in ctrl.comments">
-     <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
-     <h3 class="comment_h3">{{comment.text}}</h3>
-     <h3 class="comment_user">{{comment.user.username}}</h3>
-   </div> -->
 </div>
 
 <!-- end tool container -->

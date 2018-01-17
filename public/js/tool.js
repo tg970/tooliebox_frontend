@@ -4,7 +4,9 @@ app.filter('trustUrl', ['$sce', function ($sce) {
   };
 }]);
 
-app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http, $scope, $mdDialog) {
+app.controller('ToolController', ['$http', '$scope', '$mdDialog', '$location', function($http, $scope, $mdDialog, $location) {
+  let CtrlUrl = $location.url();
+  console.log('ToolController:', CtrlUrl);
   this.tool = {};
   this.comments = [];
   this.comment= {
@@ -15,7 +17,8 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     img:"https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
   }
   this.lang = $scope.$parent.ctrl.lang;
-  this.id = $scope.$parent.ctrl.tool;
+  this.tool = $scope.$parent.ctrl.tool;
+  this.id = $scope.$parent.ctrl.tool.id;
   this.getTool = () => {
     $http({
       method: 'GET',
@@ -49,9 +52,14 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', function($http
     }).catch(err => console.error('Catch', err));
   };
 
-  this.selectTag=(id) => {
+  this.selectTag = (id) => {
     console.log("Tag ID: "+id);
     $scope.$parent.ctrl.tag = id
+  }
+
+  this.editToolie = () => {
+    $scope.$parent.ctrl.tool = this.tool
+    $location.path('/toolie/edit')
   }
 
 }]);
