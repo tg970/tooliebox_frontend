@@ -15,7 +15,7 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
     console.log('newInfo:', $scope.newInfo);
   };
 
-  if (CtrlUrl == 'workbench') {
+  if (CtrlUrl == '/workbench') {
     this.repl = true
     $http({
         method: 'GET',

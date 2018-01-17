@@ -10,7 +10,7 @@
         </div>
         <span class="md-subhead">
           <small><ul class=toolTags>
-            Tags: 
+            Tags:
             <li class="toolTagsLi" ng-repeat="tag in tool.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}},</a></li>
           </ul></small>
         </span>
@@ -22,6 +22,6 @@
   </div>
   <md-card-actions class="oneToolBtns" layout="column" layout-align="center center">
     <md-button ng-href="/toolie" ng-click="ctrl.select(tool.id)">Show More</md-button>
-    <md-button>Add to MyBelt</md-button>
+    <md-button ng-click="ctrl.addToBelt(tool.id)">Add to MyBelt</md-button>
   </md-card-actions>
 </md-card>
