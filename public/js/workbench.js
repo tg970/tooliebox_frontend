@@ -5,7 +5,7 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
 
   $http({
       method: 'GET',
-      url: `http://localhost:3000/users/${user.id}`,
+      url: `${api}/users/${user.id}`,
       headers: { 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token')) }
     }).then(response => {
       console.log('User GET Response:', response.data);
@@ -20,7 +20,7 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
     console.log('submit create form:', newInfo);
     $http({
         method: 'POST',
-        url: `http://localhost:3000/languages/${newInfo.language}/tools`,
+        url: `${api}/languages/${newInfo.language}/tools`,
         data: newInfo
       }).then(response => {
         console.log('Post New Tool Response:',response.data);
