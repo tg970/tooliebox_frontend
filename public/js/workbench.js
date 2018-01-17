@@ -2,7 +2,7 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   let CtrlUrl = $location.url();
   console.log('WorkBenchController:', CtrlUrl);
   this.selectLang = $scope.$parent.ctrl.langs;
-  this.repl = null;
+  this.repl = true;
 
   this.select = (id) => {
     $scope.$parent.ctrl.tool.id = id
@@ -13,6 +13,7 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   }
 
   if (CtrlUrl == '/toolie/edit') {
+    this.repl = false
     $scope.newInfo = angular.copy($scope.$parent.ctrl.tool)
     let arr = ['comments', 'created_at', 'tags', 'updated_at']
     arr.forEach(i => delete $scope.newInfo[i])
@@ -44,6 +45,12 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   this.submit = (newInfo) => {
     newInfo.user_id = user.id
     newInfo.created_by = user.username
+    for (let lang of this.selectLang) {
+      if (lang.id == newInfo.language) {
+        newInfo.lang_url = lang.img_url;
+        break
+      };
+    }
     console.log('submit create form:', newInfo);
     $http({
         method: 'POST',
@@ -51,8 +58,8 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
         data: newInfo
       }).then(response => {
         console.log('Post New Tool Response:',response.data);
-        // $scope.$parent.ctrl.tool = response.data.id
-        // $location.path('/toolie')
+        $scope.$parent.ctrl.tool = response.data
+        $location.path('/toolie')
       }, error => {
         console.error(error.message);
     }).catch(err => console.error('Catch', err));
