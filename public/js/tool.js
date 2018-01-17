@@ -11,13 +11,6 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
   console.log('this.user:', this.user);
   this.tool = {};
   this.comments = [];
-  this.comment= {
-    text: ""
-  }
-  this.user = {
-    username:"Default",
-    img:"https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-  }
   this.lang = $scope.$parent.ctrl.lang;
   this.tool = $scope.$parent.ctrl.tool;
   this.id = $scope.$parent.ctrl.tool.id;
