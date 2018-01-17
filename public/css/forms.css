@@ -27,7 +27,7 @@
   text-align: center;
 }
 
-form {
+.createForm {
   background-color: white;
   padding: 60px;
   border: 1px solid black;

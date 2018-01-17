@@ -29,33 +29,45 @@
   </div>
 
  <!-- COMMENTS -->
-  <button class="comments_button" ng-click="ctrl.getComments()">Get Comments</button>
+ <div class="comments_container">
+   <div class="newcomment_div">
+     <form class="comment_form" layout="row" flex>
+       <md-input-container class="md-block commentInput">
+         <label>Post a comment</label>
+         <input ng-model="newInfo.text" required>
+         <div ng-messages="newInfo.text.$error">
+           <div ng-message="required">This is required</div>
+         </div>
+       </md-input-container>
+       <div class="submit commentSubmit">
+         <md-button type="submit" ng-click="ctrl.submit(newInfo)">Submit</md-button>
+       </div>
+     </form>
+   </div>
 
-  <div class="comments_container">
-    <style type="text/css">
-    .inputImg {
-      background: url('{{ctrl.user.img}}') ;
-      background-size: 100% 100%;
-    }
-  </style>
-
-    <div class="newcomment_div">
-      <form class="comment_form" ng-submit="ctrl.postComment()">
-        <button class="inputimg comment_button c_input" type="submit">
-          <h2>Post Comment</h2>
-
-        </button>
-        <textarea type="text" class="comment_text c_input" ng-model="ctrl.comment.text">
-      </textarea >
-    </form>
-  </div>
-
-
-  <div class="comment" ng-repeat="comment in ctrl.comments">
-    <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
-    <h3 class="comment_h3">{{comment.text}}</h3>
-    <h3 class="comment_user">{{comment.user.username}}</h3>
-  </div>
+   <style type="text/css">
+     .inputImg {
+       background: url('{{ctrl.user.img}}') ;
+       background-size: 100% 100%;
+     }
+   </style>
+   <div class="commentsWrapper">
+     <md-list class="commentsList">
+       <md-list-item class="md-2-line comment" ng-repeat="comment in ctrl.comments">
+         <img ng-src="/img/avatar.jpg" class="md-avatar" alt="img" />
+         <div class="md-list-item-text">
+           <h3>{{comment.text}}</h3>
+           <p>{{comment.user_id}}</p>
+         </div>
+       </md-list-item>
+     </md-list>
+   </div>
+   <md-divider ></md-divider>
+   <!-- <div class="comment" ng-repeat="comment in ctrl.comments">
+     <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
+     <h3 class="comment_h3">{{comment.text}}</h3>
+     <h3 class="comment_user">{{comment.user.username}}</h3>
+   </div> -->
 </div>
 
 <!-- end tool container -->
