@@ -29,4 +29,8 @@
           <md-button class="login-regBtns" type="submit" ng-click="submit(newInfo)">Login</md-button>
         </div>
       </form>
+      <div ng-if="ctrl.error" class="">
+        {{ctrl.message}}
+      </div>
+    </div>
 </md-dialog>

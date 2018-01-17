@@ -3,6 +3,7 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   console.log('WorkBenchController:', CtrlUrl);
   this.selectLang = $scope.$parent.ctrl.langs;
   this.repl = true;
+  this.showIcons = false;
 
   this.select = (id) => {
     $scope.$parent.ctrl.tool.id = id
@@ -36,6 +37,10 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
         console.log('User GET Response:', response.data);
         this.tools = response.data.tools
         this.numTools = this.tools.length
+        if (this.numTools == 0) {
+          this.showIcons = true
+          console.log('this.showIcons', this.showIcons);
+        }
         console.log(this.tools);
       }, error => {
         console.error(error.message);
@@ -109,6 +114,10 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
     }, function() {
       console.log('cancel dialog');;
     });
+  }
+
+  this.select = (id) => {
+    $scope.$parent.ctrl.lang.id = id
   }
 
 }]);

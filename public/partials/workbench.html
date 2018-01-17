@@ -1,4 +1,4 @@
-<div class="lang_wrapper">
+<div class="lang_wrapper workbench_wapper">
   <div class="langHeader">
     <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10"><img class="userImg" src={{ctrl.user.img}} /></div>
     <div class="LangHeadWrap">
@@ -14,5 +14,10 @@
       </div>
     </div>
   </div>
-  <div class="toolsWrapper" ng-include="'partials/toolieCards.html'"></div>
+  <div class="toolsWrapper" ng-if="!ctrl.showIcons" ng-include="'partials/toolieCards.html'"></div>
+  <div class="logoWrapper" ng-if="ctrl.showIcons">
+    <md-whiteframe class="logo" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 20" ng-mouseleave="height = 5" ng-repeat="lang in ctrl.selectLang">
+      <a ng-href="/language"><md-tooltip md-delay="ctrl.delayTooltip">{{lang.name}}</md-tooltip><div ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div></a>
+    </md-whiteframe>
+  </div>
 </div>

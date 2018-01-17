@@ -17,9 +17,9 @@
       </md-card-title-text>
     </div>
     <div class="toolHeadWrapLinks">
-      <md-button ng-href="#" ng-click="ctrl.sumbit()">Add to MyBelt</md-button>
-      <md-button ng-click="ctrl.editToolie()">Edit Toolie</md-button>
-      <md-button class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
+      <md-button ng-if="ctrl.user.logged" ng-href="#" ng-click="ctrl.sumbit()">Add to MyBelt</md-button>
+      <md-button ng-if="ctrl.edit" ng-click="ctrl.editToolie()">Edit Toolie</md-button>
+      <md-button ng-if="ctrl.user.logged" class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
     </div>
   </div>
 
@@ -56,10 +56,10 @@
    <div class="commentsWrapper">
      <md-list class="commentsList">
        <md-list-item class="md-2-line comment" ng-repeat="comment in ctrl.comments">
-         <img ng-src="/img/avatar.jpg" class="md-avatar" alt="img" />
+         <img ng-src="{{comment.img}}" class="md-avatar" alt="img" />
          <div class="md-list-item-text">
            <h3>{{comment.text}}</h3>
-           <p>{{comment.user_id}}</p>
+           <p>{{comment.name}}</p>
          </div>
        </md-list-item>
      </md-list>
