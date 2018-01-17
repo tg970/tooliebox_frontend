@@ -1,5 +1,5 @@
 
-const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial','ui']);
+const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial', 'ui']);
 
 let user = {};
 const api = 'https://tooliebox-api.herokuapp.com'
@@ -20,6 +20,20 @@ function FormController($scope, $mdDialog) {
   };
 
   $scope.newInfo = {};
+};
+
+function DeleteController($scope, $mdDialog) {
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+
+  $scope.submit = function() {
+    $mdDialog.hide();
+  };
 };
 
 app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {

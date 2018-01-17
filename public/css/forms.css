@@ -48,3 +48,7 @@
 md-button {
   margin: auto;
 }
+
+body.md-dialog-is-showing{
+  top: 0px !important;
+}

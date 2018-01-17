@@ -59,6 +59,7 @@ app.controller("TagController", [ '$http', '$route', '$scope', '$location', func
       url:`${api}/tags/${id}`
     })
     .then((response) => {
+      console.log(response.data);
       json = response.data;
       this.oneTag = json;
       return json;

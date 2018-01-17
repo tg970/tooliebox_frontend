@@ -1,8 +1,16 @@
-app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location', function($http, $route, $scope, $location) {
+app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   let CtrlUrl = $location.url();
   console.log('WorkBenchController:', CtrlUrl);
   this.selectLang = $scope.$parent.ctrl.langs;
   this.repl = null;
+
+  this.select = (id) => {
+    $scope.$parent.ctrl.tool.id = id
+  }
+
+  this.selectTag=(id) => {
+    $scope.$parent.ctrl.tag = id
+  }
 
   if (CtrlUrl == '/toolie/edit') {
     $scope.newInfo = angular.copy($scope.$parent.ctrl.tool)
@@ -15,8 +23,10 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
     console.log('newInfo:', $scope.newInfo);
   };
 
-  if (CtrlUrl == 'workbench') {
+  if (CtrlUrl == '/workbench') {
+    console.log('user:', user);
     this.repl = true
+    this.user = user
     $http({
         method: 'GET',
         url: `${api}/users/${user.id}`,
@@ -24,6 +34,7 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
       }).then(response => {
         console.log('User GET Response:', response.data);
         this.tools = response.data.tools
+        this.numTools = this.tools.length
         console.log(this.tools);
       }, error => {
         console.error(error.message);
@@ -32,6 +43,7 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
 
   this.submit = (newInfo) => {
     newInfo.user_id = user.id
+    newInfo.created_by = user.username
     console.log('submit create form:', newInfo);
     $http({
         method: 'POST',
@@ -68,17 +80,28 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
     }).catch(err => console.error('Catch', err));
   };
 
-  this.deleteTool = () => {
-    console.log('deleteTool:', $scope.$parent.ctrl.tool);
-    $http({
-        method: 'DELETE',
-        url: `${api}/tools/${$scope.$parent.ctrl.tool.id}`
-      }).then(response => {
-        console.log('Delete Response:', response);
-        $location.path('/')
-      }, error => {
-        console.error(error.message);
-    }).catch(err => console.error('Catch', err));
-  };
+  this.openDelete = (ev) => {
+    $mdDialog.show({
+      controller: DeleteController,
+      templateUrl: 'partials/delete.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+    })
+    .then((newInfo) => {
+      console.log('deleteTool:', $scope.$parent.ctrl.tool);
+      $http({
+          method: 'DELETE',
+          url: `${api}/tools/${$scope.$parent.ctrl.tool.id}`
+        }).then(response => {
+          console.log('Delete Response:', response);
+          $location.path('/')
+        }, error => {
+          console.error(error.message);
+      }).catch(err => console.error('Catch', err));
+    }, function() {
+      console.log('cancel dialog');;
+    });
+  }
 
 }]);

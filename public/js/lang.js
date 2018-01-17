@@ -23,4 +23,20 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
     $scope.$parent.ctrl.tag = id
   }
 
+  this.addToBelt = (id) => {
+    console.log('Add tool id:',id);
+    console.log('Add to user id', user.id);
+    let newInfo = { tool_id: id, user_id: user.id }
+    console.log('newInfo:', newInfo);
+    $http({
+        method: 'POST',
+        url: `${api}/toolbelts`,
+        data: newInfo
+      }).then(response => {
+        console.log('toolBelt response:',response.data);
+      }, error => {
+        console.error(error.message);
+    }).catch(err => console.error('Catch', err));
+  }
+
 }]);
