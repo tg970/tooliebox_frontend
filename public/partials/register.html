@@ -1,4 +1,4 @@
-<md-dialog aria-label="Add a Step" layout="column" class="md-inline-form">
+<md-dialog aria-label="Register Form" layout="column" class="md-inline-form register">
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>Register</h2>
@@ -10,20 +10,6 @@
   </md-toolbar>
   <md-content layout-padding>
   <form name="newForm">
-    <!-- <md-input-container class="md-block">
-      <label>Name</label>
-      <input ng-model="newInfo.name" required>
-      <div ng-messages="newInfo.name.$error">
-        <div ng-message="required">This is required</div>
-      </div>
-    </md-input-container> -->
-    <md-input-container class="md-block">
-      <label>Img</label>
-      <input ng-model="newInfo.img" required>
-      <div ng-messages="newInfo.img.$error">
-        <div ng-message="required">We actually don't know how to email you</div>
-      </div>
-    </md-input-container>
     <md-input-container class="md-block">
       <label>Username</label>
       <input ng-model="newInfo.username" required>
@@ -33,12 +19,19 @@
     </md-input-container>
     <md-input-container class="md-block">
       <label>Password</label>
-      <input ng-model="newInfo.password" required>
+      <input type="password" ng-model="newInfo.password" required>
       <div ng-messages="newInfo.password.$error">
         <div ng-message="required">Password is required</div>
       </div>
     </md-input-container>
-    <div>
+    <md-input-container class="md-block">
+      <label>Img</label>
+      <input ng-model="newInfo.img">
+      <div ng-messages="newInfo.img.$error">
+        <div ng-message="required">Don't worry about it</div>
+      </div>
+    </md-input-container>
+    <div class="submit">
       <md-button type="submit" ng-click="submit(newInfo)">Submit</md-button>
     </div>
   </form>

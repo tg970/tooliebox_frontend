@@ -1,6 +1,6 @@
 app.controller('HomeController', [ '$http', '$route', '$scope', '$location', '$mdDialog', function($http, $route, $scope, $location, $mdDialog) {
   let CtrlUrl = $location.url();
-  console.log('MainController:', CtrlUrl);
+  console.log('HomeController:', CtrlUrl);
   this.test = "hello"
   this.delayTooltip = 750;
 

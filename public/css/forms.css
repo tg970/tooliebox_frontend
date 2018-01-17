@@ -32,7 +32,11 @@
   padding: 60px;
   border: 1px solid black;
   margin: auto;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
+}
+
+.cancelbtn {
+  margin-bottom: 5em;
 }
 
 .md-block {

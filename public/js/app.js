@@ -24,11 +24,10 @@ function FormController($scope, $mdDialog) {
 
 app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   // User States:
-  this.lang = null
-  this.hello = 'test test test'
   this.user = user;
   this.showLogin = false;
   this.lang = {};
+  this.tool = {};
   if (user.logged) {
     this.userName = this.user.username;
   }
@@ -135,6 +134,12 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
 
   $routeProvider.when('/toolie/create', {
     templateUrl: 'partials/createTool.html',
+    controller: 'WorkBenchController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
+  $routeProvider.when('/toolie/edit', {
+    templateUrl: 'partials/editTool.html',
     controller: 'WorkBenchController as ctrl',
     controllerAs: 'ctrl'
   });
