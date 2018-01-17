@@ -1,4 +1,4 @@
-app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location', function($http, $route, $scope, $location) {
+app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   let CtrlUrl = $location.url();
   console.log('WorkBenchController:', CtrlUrl);
   this.selectLang = $scope.$parent.ctrl.langs;
@@ -68,17 +68,28 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
     }).catch(err => console.error('Catch', err));
   };
 
-  this.deleteTool = () => {
-    console.log('deleteTool:', $scope.$parent.ctrl.tool);
-    $http({
-        method: 'DELETE',
-        url: `${api}/tools/${$scope.$parent.ctrl.tool.id}`
-      }).then(response => {
-        console.log('Delete Response:', response);
-        $location.path('/')
-      }, error => {
-        console.error(error.message);
-    }).catch(err => console.error('Catch', err));
-  };
+  this.openDelete = (ev) => {
+    $mdDialog.show({
+      controller: DeleteController,
+      templateUrl: 'partials/delete.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+    })
+    .then((newInfo) => {
+      console.log('deleteTool:', $scope.$parent.ctrl.tool);
+      $http({
+          method: 'DELETE',
+          url: `${api}/tools/${$scope.$parent.ctrl.tool.id}`
+        }).then(response => {
+          console.log('Delete Response:', response);
+          $location.path('/')
+        }, error => {
+          console.error(error.message);
+      }).catch(err => console.error('Catch', err));
+    }, function() {
+      console.log('cancel dialog');;
+    });
+  }
 
 }]);

@@ -4,7 +4,7 @@ app.filter('trustUrl', ['$sce', function ($sce) {
   };
 }]);
 
-app.controller('ToolController', ['$http', '$scope', '$mdDialog', '$location', function($http, $scope, $mdDialog, $location) {
+app.controller('ToolController', ['$http', '$scope', '$location', function($http, $scope, $location) {
   let CtrlUrl = $location.url();
   console.log('ToolController:', CtrlUrl);
   this.tool = {};
