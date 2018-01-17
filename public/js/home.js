@@ -6,7 +6,7 @@ app.controller('HomeController', [ '$http', '$route', '$scope', '$location', '$m
 
   $http({
       method: 'GET',
-      url: 'http://localhost:3000/languages'
+      url: `${api}/languages`
     }).then(response => {
       console.log('allLangs:',response.data);
       this.langs = response.data;

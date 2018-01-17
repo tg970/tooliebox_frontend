@@ -2,6 +2,7 @@
 const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial','ui']);
 
 let user = {};
+const api = 'https://tooliebox-api.herokuapp.com'
 
 function FormController($scope, $mdDialog) {
   $scope.hide = function() {
@@ -60,7 +61,7 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
       console.log('login request:', newInfo);
       $http({
           method: 'POST',
-          url: 'http://localhost:3000/users/login',
+          url: `${api}/users/login`,
           data: { user: newInfo }
         }).then(response => {
           console.log('login succesful:', response.data);
@@ -90,7 +91,7 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
       console.log('register request:', newInfo);
       $http({
           method: 'POST',
-          url: 'http://localhost:3000/users',
+          url: `${api}/users`,
           data: { user: newInfo }
         }).then(response => {
           console.log('register succesful:', response.data);
