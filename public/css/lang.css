@@ -141,6 +141,11 @@
 
 /* ----------------------- */
 /* TAG SEARCH */
+
+.pointer {
+  cursor: pointer;
+}
+
 .TagHeadWrap {
   display: flex;
   flex-direction: column;

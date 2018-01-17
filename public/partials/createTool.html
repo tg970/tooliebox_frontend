@@ -1,6 +1,6 @@
 <div class="createNewToolie">
   <h1 class="createCTA">Create a Tool...</h1>
-  <p class="createSubhead">Add a URL to your favorite dev tool <br>or add a snippet to ToolieBox</p>
+  <p class="createSubhead">Add a URL to your favorite dev tool <br>or add a code snippet to ToolieBox</p>
   <form name="newForm" class="createForm">
     <md-input-container class="md-block">
       <label>Language</label>
@@ -36,18 +36,18 @@
       <label>Repl.it URL</label>
       <input ng-model="newInfo.repl_url" required>
       <div ng-messages="newInfo.repl_url.$error">
-        <div ng-message="required">Please paste in the entire Repl.it URL</div>
+        <div ng-message="required">Paste the entire Repl.it URL</div>
       </div>
     </md-input-container>
     <md-input-container ng-if="!ctrl.repl" class="md-block">
       <label>Code Example URL</label>
       <input ng-model="newInfo.link_url" required>
       <div ng-messages="newInfo.link_url.$error">
-        <div ng-message="required">Please paste in a link to where we can see a code example</div>
+        <div ng-message="required">Please paste the URL to a tool or a code sample</div>
       </div>
     </md-input-container>
     <div class="submit">
-      <md-button type="submit" ng-click="ctrl.submit(newInfo)">Submit</md-button>
+      <md-button class="createSubmit" type="submit" ng-click="ctrl.submit(newInfo)">Submit</md-button>
     </div>
   </form>
 </div>

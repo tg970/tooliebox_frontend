@@ -9,6 +9,7 @@
   background-color: lightgrey;
   max-width: 800px;
   margin: auto;
+  height: auto;
 }
 
 .createCTA {
@@ -32,10 +33,59 @@
   padding: 60px;
   border: 1px solid black;
   margin: auto;
+  margin-bottom: 80px;
+}
+
+.createSubmit {
+  background-color: #63cc51;
+}
+
+
+/* ----------------------- */
+/* EDIT/DELETE TOOLIE FORM */
+.editNewToolie {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: lightgrey;
+  max-width: 800px;
+  margin: auto;
+}
+
+.editCTA {
+  padding-top: 20px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 38px;
+  color: black;
+  text-align: center;
+}
+
+.editSubhead {
+  font-family: 'Architects Daughter', cursive;
+  margin-top: -20px;
+  font-size: 26px;
+  color: black;
+  text-align: center;
+}
+
+.editForm {
+  background-color: white;
+  padding: 60px;
+  border: 1px solid black;
+  margin: auto;
   /* margin-bottom: 80px; */
 }
 
-.cancelbtn {
+.editSubmit {
+  background-color: #63cc51;
+}
+
+.cancel-delete_wrapper {
+  margin-top: 30px;
+}
+
+.cancelBtn {
   margin-bottom: 5em;
 }
 
@@ -51,4 +101,20 @@ md-button {
 
 body.md-dialog-is-showing{
   top: 0px !important;
+}
+
+/* ----------------------- */
+/* DELETE DIALOG */
+
+md-dialogue {
+  padding left: 60px;
+  padding-right: 60px;
+}
+
+.md-toolbar-tools {
+  font-family: 'Rock Salt', cursive;
+}
+
+.deleteText {
+  font-family: 'Architects Daughter', cursive;
 }
