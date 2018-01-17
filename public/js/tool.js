@@ -46,19 +46,19 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
     if (user.logged) {
       newInfo.tool_id = this.id
       newInfo.user_id = user.id
-      newInfo.user_name = user.username
-      newIngo.user_img = user.img
+      newInfo.name = user.username
+      newInfo.img = user.img
       console.log('submit create form:', newInfo);
-      // $http({
-      //     method: 'POST',
-      //     url: `${api}/comments`,
-      //     data: newInfo
-      //   }).then(response => {
-      //     console.log('Post New Tool Response:',response.data);
-      //     this.comments.push(response.data)
-      //   }, error => {
-      //     console.error(error.message);
-      // }).catch(err => console.error('Catch', err));
+      $http({
+          method: 'POST',
+          url: `${api}/comments`,
+          data: newInfo
+        }).then(response => {
+          console.log('Post New COMMENT Response:',response.data);
+          this.comments.push(response.data)
+        }, error => {
+          console.error(error.message);
+      }).catch(err => console.error('Catch', err));
     }
   };
 

@@ -3,6 +3,7 @@ const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial', 'ui']);
 
 let user = {};
 const api = 'https://tooliebox-api.herokuapp.com'
+//https://tooliebox-api.herokuapp.com
 
 function FormController($scope, $mdDialog) {
   $scope.hide = function() {
@@ -42,6 +43,7 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
   this.showLogin = false;
   this.lang = {};
   this.tool = {};
+  this.message = null;
   if (user.logged) {
     this.userName = this.user.username;
   }
@@ -62,19 +64,29 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
       clickOutsideToClose:true,
     })
     .then((newInfo) => {
-      console.log('login request:', newInfo);
       $http({
           method: 'POST',
           url: `${api}/users/login`,
           data: { user: newInfo }
         }).then(response => {
-          console.log('login succesful:', response.data);
-          localStorage.setItem('token', JSON.stringify(response.data.token));
-          user = response.data.user
-          user.logged = true
-          this.user = user;
-          $scope.$broadcast('updateAuth', { data: this.user })
-        }, (error) => {
+          console.log('response:', response.data);
+          if (response.data.status == 200) {
+            console.log('succesful login');
+            localStorage.setItem('token', JSON.stringify(response.data.token));
+            user = response.data.user
+            user.logged = true
+            this.user = user;
+            this.error = false;
+            $scope.$broadcast('updateAuth', { data: this.user })
+          } else {
+            this.error = true;
+            this.message = response.data.message
+            console.log(this);
+            console.log($scope);
+            console.log(response.data.message);
+            return this.openLogin(ev)
+          }
+        }).catch((error) => {
           console.log('login error:', error);
           this.openLogin(ev)
         }).catch(err => console.error('Catch', err))

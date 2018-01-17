@@ -56,10 +56,10 @@
    <div class="commentsWrapper">
      <md-list class="commentsList">
        <md-list-item class="md-2-line comment" ng-repeat="comment in ctrl.comments">
-         <img ng-src="/img/avatar.jpg" class="md-avatar" alt="img" />
+         <img ng-src="{{comment.img}}" class="md-avatar" alt="img" />
          <div class="md-list-item-text">
            <h3>{{comment.text}}</h3>
-           <p>{{comment.user_id}}</p>
+           <p>{{comment.name}}</p>
          </div>
        </md-list-item>
      </md-list>
