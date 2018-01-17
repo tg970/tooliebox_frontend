@@ -18,4 +18,9 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
     $scope.$parent.ctrl.lang = this.lang
   }
 
+  this.selectTag=(id) => {
+    console.log("Tag ID: "+id);
+    $scope.$parent.ctrl.tag = id
+  }
+
 }]);

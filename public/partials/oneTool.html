@@ -11,8 +11,8 @@
         <span class="md-subhead"><small>Created by: {{tool.created_by}}</small></span>
         <span class="md-subhead">
           <small><ul class=toolTags>
-            Tags:
-            <li class="toolTagsLi" ng-repeat="tag in ctrl.tags"><a class="noLink" href="#">{{tag.text}},</a></li>
+            Tags: 
+            <li class="toolTagsLi" ng-repeat="tag in ctrl.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}},</a></li>
           </ul></small>
         </span>
       </md-card-title-text>
