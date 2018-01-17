@@ -4,6 +4,14 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   this.selectLang = $scope.$parent.ctrl.langs;
   this.repl = null;
 
+  this.select = (id) => {
+    $scope.$parent.ctrl.tool.id = id
+  }
+
+  this.selectTag=(id) => {
+    $scope.$parent.ctrl.tag = id
+  }
+
   if (CtrlUrl == '/toolie/edit') {
     $scope.newInfo = angular.copy($scope.$parent.ctrl.tool)
     let arr = ['comments', 'created_at', 'tags', 'updated_at']
@@ -16,7 +24,9 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   };
 
   if (CtrlUrl == '/workbench') {
+    console.log('user:', user);
     this.repl = true
+    this.user = user
     $http({
         method: 'GET',
         url: `${api}/users/${user.id}`,
@@ -24,6 +34,7 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
       }).then(response => {
         console.log('User GET Response:', response.data);
         this.tools = response.data.tools
+        this.numTools = this.tools.length
         console.log(this.tools);
       }, error => {
         console.error(error.message);
