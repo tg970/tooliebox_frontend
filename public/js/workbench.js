@@ -5,7 +5,7 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
   this.repl = null;
 
   if (CtrlUrl == '/toolie/edit') {
-    $scope.newInfo = $scope.$parent.ctrl.tool
+    $scope.newInfo = angular.copy($scope.$parent.ctrl.tool)
     let arr = ['comments', 'created_at', 'tags', 'updated_at']
     arr.forEach(i => delete $scope.newInfo[i])
     if ($scope.newInfo.repl_url) {
@@ -55,17 +55,17 @@ app.controller('WorkBenchController', [ '$http', '$route', '$scope', '$location'
   this.submitEdit = (newInfo) => {
     newInfo.user_id = user.id
     console.log('submit create form:', newInfo);
-    // $http({
-    //     method: 'POST',
-    //     url: `${api}/languages/${newInfo.language}/tools`,
-    //     data: newInfo
-    //   }).then(response => {
-    //     console.log('Post New Tool Response:',response.data);
-    //     // $scope.$parent.ctrl.tool = response.data.id
-    //     // $location.path('/toolie')
-    //   }, error => {
-    //     console.error(error.message);
-    // }).catch(err => console.error('Catch', err));
+    $http({
+        method: 'PUT',
+        url: `${api}/tools/${newInfo.id}`,
+        data: newInfo
+      }).then(response => {
+        console.log('Post New Tool Response:',response.data);
+        $scope.$parent.ctrl.tool = response.data
+        $location.path('/toolie')
+      }, error => {
+        console.error(error.message);
+    }).catch(err => console.error('Catch', err));
   };
 
 }]);
