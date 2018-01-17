@@ -1,12 +1,24 @@
-<div class="tag_container">
-  <h1>Searching By Tags:</h1>
-  <div class="search_container">
-    <h2>Add A Tag To Search By</h2>
-    <input type="text" ng-model="searchText" placeholder="Tag">
-    <h2 ng-repeat="tag in ctrl.allTags | filter:searchText  " ng-click="ctrl.getTag(tag.id)">{{tag.text}}</h2>
-    <hr>
-    <h2>Searched By Currently</h2>
-    <h2 ng-repeat="tag in ctrl.tags" ng-click="ctrl.passiveTag(tag)">{{tag.text}}</h2>
+<div class="lang_wrapper">
+  <div class="langHeader">
+    <div class="TagHeadWrap">
+      <h1 class="searchTags">Search By Tags</h1>
+    </div>
   </div>
- <div ng-include="'partials/toolieCards.html'"></div>
+  <div class="findTags">
+    <h2>Add Related Tags to Filter:</h2>
+    <p ng-repeat="tag in ctrl.allTags | filter:searchText  " ng-click="ctrl.getTag(tag.id)">+ {{tag.text}} &nbsp;</p>
+  </div>
+  <div class="searchBar">
+    <md-content layout="column" layout-padding>
+      <md-input-container style="padding-bottom: 0; margin-bottom: 0">
+         <md-icon class="material-icons">&#128270;</md-icon>
+         <input ng-model="searchText" placeholder="Search for More Tags">
+      </md-input-container>
+    </md-content>
+  </div>
+  <div class="currentTags">
+    <h2>Current Search Results for:</h2>
+    <p ng-repeat="tag in ctrl.tags" ng-click="ctrl.passiveTag(tag)">{{tag.text}}</p>
+  </div>
+  <div class="toolsWrapper" ng-include="'partials/toolieCards.html'"></div>
 </div>
