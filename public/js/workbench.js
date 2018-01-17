@@ -43,6 +43,7 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
 
   this.submit = (newInfo) => {
     newInfo.user_id = user.id
+    newInfo.created_by = user.username
     console.log('submit create form:', newInfo);
     $http({
         method: 'POST',
