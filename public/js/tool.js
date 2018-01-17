@@ -26,7 +26,9 @@ app.controller('ToolController', ['$http', '$scope', '$mdDialog', '$location', f
     }).then(response => {
       console.log('oneTool:',response.data);
       this.temp = response.data;
-      this.temp.repl_url += "?lite=true";
+      if (this.temp.repl==true) {
+        this.temp.repl_url += "?lite=true";
+      }
       this.tool = this.temp;
       this.tags = response.data.tags;
       this.comments = response.data.comments;

@@ -24,10 +24,14 @@
   </div>
 
   <!-- REPL.IT IFRAMED SNIPPET CONTENT -->
-  <div class="iframeReplIt">
+  <div ng-show="ctrl.tool.repl" class="iframeReplIt">
     <iframe class="replFrame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
   </div>
 
+<div style="text-align:center" ng-hide="ctrl.tool.repl" class="noRepl">
+  <a target="_blank" href="{{ctrl.tool.repl_url}}"><h2>{{ctrl.tool.repl_url}}</h2></a>
+
+</div>
  <!-- COMMENTS -->
  <div class="comments_container">
    <div class="newcomment_div">
