@@ -1,46 +1,74 @@
-<div class="tool_container">
-
-  <div class="language">
-    <div class="show_logo" ng-include="ctrl.lang.img_url"></div>
-  </div>
-  <a ng-href="/toolbelt">
-    <button class="add_belt">+ Tool Belt</button>
-  </a>
-  <div class="tag_info">
-    <h1>{{ctrl.tool.title}}</h1>
-    <h2>{{ctrl.tool.description}}</h2>
-  </div>
-
-  <div class="show_tags">
-    <div ng-repeat="tag in ctrl.tool.tags">
-      <a class="a_tag" ng-href="/tag">
-        <h2 class = "h2_tag" ng-click="ctrl.selectTag(tag.id)">
-          {{tag.text}}
-        </h2>
-      </a>
+<!-- SHOW ONE TOOL HEADER DETAIL -->
+<div class="tool_wrapper">
+  <div class="toolHeader">
+    <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url">
     </div>
-
-
-
-  </div>
-
-  <div class="framediv">
-
-
-    <iframe class="repl_frame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-  </div>
-
-  <button class="comments_button" ng-click="ctrl.getComments()">Get Comments</button>
-
-  <hr style="height:4em; visibility:hidden;" />
-
-  <div class="comments_container">
-    <div class="comment" ng-repeat="comment in ctrl.comments">
-      <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
-      <h3 class="comment_h3">{{comment.text}}</h3>
-      <h3 class="comment_user">{{comment.user.username}}</h3>
+    <div class="toolDetail">
+      <h1>{{ctrl.tool.title}}</h1>
+      <h2>{{ctrl.tool.description}}</h2>
+      <md-card-title-text>
+        <a class="noLink" ng-href="/toolie"><span  ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
+        <span class="md-subhead"><small>Created by: {{tool.created_by}}</small></span>
+        <span class="md-subhead">
+          <small><ul class=toolTags>
+            Tags:
+            <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}},</a></li>
+          </ul></small>
+        </span>
+      </md-card-title-text>
+    </div>
+    <div class="toolHeadWrapLinks">
+      <md-button ng-href="/toolie" ng-click="ctrl.select(tool.id)">Add to MyBelt</md-button>
+      <md-button class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
     </div>
   </div>
 
-  <!-- end tool container -->
+  <!-- REPL.IT IFRAMED SNIPPET CONTENT -->
+  <div class="iframeReplIt">
+    <iframe class="replFrame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+  </div>
+
+ <!-- COMMENTS -->
+ <div class="comments_container">
+   <div class="newcomment_div">
+     <form class="comment_form" layout="row" flex>
+       <md-input-container class="md-block commentInput">
+         <label>Post a comment</label>
+         <input ng-model="newInfo.text" required>
+         <div ng-messages="newInfo.text.$error">
+           <div ng-message="required">This is required</div>
+         </div>
+       </md-input-container>
+       <div class="submit commentSubmit">
+         <md-button type="submit" ng-click="ctrl.submit(newInfo)">Submit</md-button>
+       </div>
+     </form>
+   </div>
+
+   <style type="text/css">
+     .inputImg {
+       background: url('{{ctrl.user.img}}') ;
+       background-size: 100% 100%;
+     }
+   </style>
+   <div class="commentsWrapper">
+     <md-list class="commentsList">
+       <md-list-item class="md-2-line comment" ng-repeat="comment in ctrl.comments">
+         <img ng-src="/img/avatar.jpg" class="md-avatar" alt="img" />
+         <div class="md-list-item-text">
+           <h3>{{comment.text}}</h3>
+           <p>{{comment.user_id}}</p>
+         </div>
+       </md-list-item>
+     </md-list>
+   </div>
+   <md-divider ></md-divider>
+   <!-- <div class="comment" ng-repeat="comment in ctrl.comments">
+     <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
+     <h3 class="comment_h3">{{comment.text}}</h3>
+     <h3 class="comment_user">{{comment.user.username}}</h3>
+   </div> -->
+</div>
+
+<!-- end tool container -->
 </div>

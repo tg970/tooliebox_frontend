@@ -1,0 +1,46 @@
+
+/* ----------------------- */
+/* CREATE A TOOLIE FORM */
+.createNewToolie {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: lightgrey;
+  max-width: 800px;
+  margin: auto;
+}
+
+.createCTA {
+  padding-top: 20px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 38px;
+  color: black;
+  text-align: center;
+}
+
+.createSubhead {
+  font-family: 'Architects Daughter', cursive;
+  margin-top: -20px;
+  font-size: 26px;
+  color: black;
+  text-align: center;
+}
+
+.createForm {
+  background-color: white;
+  padding: 60px;
+  border: 1px solid black;
+  margin: auto;
+  margin-bottom: 80px;
+}
+
+.md-block {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+}
+
+md-button {
+  margin: auto;
+}

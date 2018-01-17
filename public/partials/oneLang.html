@@ -1,36 +1,21 @@
 <div class="lang_wrapper">
   <div class="langHeader">
-    <a href="{{ctrl.lang.dox_url}}"><div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url"></div></a>
+    <a href="{{ctrl.lang.dox_url}}">
+      <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url">
+      </div>
+    </a>
     <div class="LangHeadWrap">
-      <h1>{{ctrl.lang.name}}</h1>
-      <h3>Tools: {{ctrl.numTools}}</h3>
-      <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Documentation</md-button>
+      <div class="toolStats">
+        <h1>{{ctrl.lang.name}}</h1>
+        <div class="LangHeadWrapTtlTools">
+          <h3>Dev Tools Contributed:</h3> <h2>{{ctrl.numTools}}</h2>
+        </div>
+      </div>
+      <div class="LangHeadWrapLinks">
+        <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Dev Documentation</md-button>
+        <md-button class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
+      </div>
     </div>
   </div>
-  <md-card class="oneTool" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 15" ng-mouseleave="height = 5" ng-repeat="tool in ctrl.tools">
-    <div class="toolAvatar" ng-include="ctrl.lang.img_url"></div>
-    <div class="oneToolContent">
-      <md-card-title>
-        <md-card-title-text>
-          <a class="noLink" ng-href="/toolie"><span ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
-          <span class="md-subhead">Created by: {{tool.created_by}}</span>
-          <div class="toolSubHead">
-            <span class="md-subhead">{{ctrl.lang.name}}</span>
-            <span class="md-subhead toolSubHeadCtn">( {{tool.num_belts}} )</span>
-          </div>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-        <p class="toolDesc" md-truncate>{{tool.description}}</p>
-        <small><ul class="toolTags">
-          Tags:
-          <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}}</a></li>
-        </ul></small>
-      </md-card-content>
-    </div>
-    <md-card-actions class="oneToolBtns" layout="column" layout-align="center center">
-      <md-button>Show More</md-button>
-      <md-button>Add to MyBelt</md-button>
-    </md-card-actions>
-  </md-card>
+  <div class="toolsWrapper" ng-include="'partials/toolieCards.html'"></div>
 </div>

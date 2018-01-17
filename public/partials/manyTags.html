@@ -1,0 +1,9 @@
+<div class="show_tags">
+  <div ng-repeat="tag in ctrl.tags">
+    <a ng-click="ctrl.selectTag(tag.id)" class="a_tag" ng-href="/tag">
+      <h2 class = "h2_tag" >
+        {{tag.text}}
+      </h2>
+    </a>
+  </div>
+</div>

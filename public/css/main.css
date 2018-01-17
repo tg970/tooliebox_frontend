@@ -1,62 +1,145 @@
+/* FONT IMPORTS */
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
-nav {
-  width: 100%;
-  height: 5em;
+
+body {
+  background-color: black;
+  height: auto;
 }
-.nav{
-  border: 2px solid black;
+
+/* ----------------------- */
+/* LOGO STYLES */
+.tooliebox {
+  height: 100%;
+}
+
+.tooliebox h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 32px;
+  color: white;
+  margin: 0;
+  margin-left: 2em;
+}
+
+/* ----------------------- */
+/* NAVIGATION STYLES */
+nav {
+  max-width: 1100px;
+  padding-top: 15px;
+  height: 100px;
+  margin: auto;
+  background-color: black;
+}
+.nav {
+  border-bottom: 1px solid black;
   height: 4.75em;
 }
 .nav, .navBox {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: white;
 }
-.tooliebox{
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.tooliebox h1 {
-  font-family: 'Rock Salt', cursive;
-  font-size: 32px;
-  margin: 0;
-  margin-left: 2em;
-}
+
 .navBox {
   width: 10em;
   margin-right: 5em;
 }
 
-.navBtn{
+p {
+  font-size: 22px;
+}
+
+.navBtn {
   margin: 1em;
 }
 
+/* ----------------------- */
+/* MAIN CONTENT AREA */
+.mainContent {
+  background-color: white;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ----------------------- */
+/* GET STARTED */
+.getStarted {
+  margin-top: -3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.getStarted h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 38px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.getStarted p {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+
+/* ----------------------- */
+/* ICONOGRAPHIC MENU */
 .logoWrapper {
-  width: 100%;
   height: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  justify-content: space-around;
   flex-wrap: wrap;
-  background: #E0E0E0;
+  padding-bottom: 60px;
 }
+
 .logo {
-  width: 15em;
-  height: 15em;
+  width: 200px;
+  height: 200px;
   margin: 1em;
-  border-radius: .5em;
   background-color: #FFF;
 }
 
+/* ----------------------- */
+/* SEARCH */
+.search {
+  max-width: 800px;
+  margin: auto;
+  padding-bottom: 100px;
+}
+md-content {
+  background: lightgrey;
+}
+
+/* ----------------------- */
+/* FOOTER */
 footer {
-  width: 100%;
-  height: 7em;
-  border: 2px solid black;
+  max-width: 1100px;
+  height: 50px;
+  border-top: 1px solid black;
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+footer h6 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: white;
 }
 
 .foot {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.submit{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

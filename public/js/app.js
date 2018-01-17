@@ -1,12 +1,25 @@
 
-const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial']);
+const app = angular.module('toolieBox_app', ['ngRoute', 'ngMaterial','ui']);
 
 let user = {};
-const updateUser = (data) => {
-  user = data;
-  user.logged = true;
-  return
-}
+
+function FormController($scope, $mdDialog) {
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+
+  $scope.submit = function(newInfo) {
+    if (!$scope.newForm.$invalid) {
+      $mdDialog.hide(newInfo);
+    }
+  };
+
+  $scope.newInfo = {};
+};
 
 app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   // User States:
@@ -14,26 +27,10 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
   this.hello = 'test test test'
   this.user = user;
   this.showLogin = false;
+  this.lang = {};
   if (user.logged) {
     this.userName = this.user.username;
   }
-
-  // Check Server for Session
-  // $http({
-  //     method: 'get',
-  //     url: '/sessions',
-  //   }).then(response => {
-  //     //console.log('sessionReq:', response.data.user);
-  //     if (response.data.user) {
-  //       user = response.data.user;
-  //       user.logged = true;
-  //       this.user = user
-  //       this.userName = user.username
-  //     }
-  //     console.log('userInfo:', user);
-  //   }, error => {
-  //     console.log('error:', error);
-  //   }).catch(err => console.error('Catch:', err))
 
   // Logout
   this.logout = () => {
@@ -51,24 +48,6 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
     .catch(err => this.loginError = 'Something went wrong' );
   }
 
-  function FormController($scope, $mdDialog) {
-    $scope.hide = function() {
-      $mdDialog.hide();
-    };
-
-    $scope.cancel = function() {
-      $mdDialog.cancel();
-    };
-
-    $scope.submit = function(newInfo) {
-      if (!$scope.newForm.$invalid) {
-        $mdDialog.hide(newInfo);
-      }
-    };
-
-    $scope.newInfo = {};
-  };
-
   this.openLogin = (ev) => {
     $mdDialog.show({
       controller: FormController,
@@ -80,17 +59,16 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
     .then((newInfo) => {
       console.log('login request:', newInfo);
       $http({
-          method: 'PUT',
-          url: '/sessions/post',
-          data: newInfo
+          method: 'POST',
+          url: 'http://localhost:3000/users/login',
+          data: { user: newInfo }
         }).then(response => {
           console.log('login succesful:', response.data);
-          updateUser(response.data);
+          localStorage.setItem('token', JSON.stringify(response.data.token));
+          user = response.data.user
+          user.logged = true
           this.user = user;
-          this.userName = response.data.username;
-          this.error = null;
-          this.loginError = null;
-          $scope.$broadcast('updateAuth', { data: this.user })
+          // $scope.$broadcast('updateAuth', { data: this.user })
         }, (error) => {
           console.log('login error:', error);
           this.openLogin(ev)
@@ -111,16 +89,12 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
     .then((newInfo) => {
       console.log('register request:', newInfo);
       $http({
-          method: 'PUT',
-          url: '/users/post',
-          data: newInfo
+          method: 'POST',
+          url: 'http://localhost:3000/users',
+          data: { user: newInfo }
         }).then(response => {
           console.log('register succesful:', response.data);
-          updateUser(response.data);
-          this.user = user;
-          this.userName = response.data.username;
-          this.error = null;
-          $scope.$broadcast('updateAuth', { data: this.user })
+          return this.openLogin(ev)
         }, (error) => {
           console.log('login error:', error);
           this.openRegister(ev)
@@ -158,13 +132,31 @@ app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function
     controllerAs: 'ctrl'
   });
 
+  $routeProvider.when('/toolie/create', {
+    templateUrl: 'partials/createTool.html',
+    controller: 'WorkBenchController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
+  $routeProvider.when('/workbench', {
+    templateUrl: 'partials/workbench.html',
+    controller: 'WorkBenchController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
+  $routeProvider.when('/tag', {
+    templateUrl: 'partials/tag.html',
+    controller: 'TagController as ctrl',
+    controllerAs: 'ctrl'
+  });
+
   $routeProvider.otherwise({
     redirectTo: '/'
   });
 
   $mdThemingProvider.theme('default')
     .primaryPalette('blue')
-    .accentPalette('blue')
-    .warnPalette('blue');
+    .accentPalette('orange')
+    .warnPalette('red');
 
 }]);
