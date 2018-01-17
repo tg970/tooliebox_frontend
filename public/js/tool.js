@@ -7,6 +7,7 @@ app.filter('trustUrl', ['$sce', function ($sce) {
 app.controller('ToolController', ['$http', '$scope', '$location', function($http, $scope, $location) {
   let CtrlUrl = $location.url();
   console.log('ToolController:', CtrlUrl);
+  this.user = user;
   this.tool = {};
   this.comments = [];
   this.comment= {
@@ -32,6 +33,9 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
       this.tool = this.temp;
       this.tags = response.data.tags;
       this.comments = response.data.comments;
+      if (this.user.username == this.tool.created_by) {
+        this.edit = true;
+      }
     }, error => {
       console.error(error.message);
     }).catch(err => console.error('Catch', err));
@@ -39,19 +43,23 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
   this.getTool();
 
   this.submit = (newInfo) => {
-    newInfo.tool_id = this.id
-    newInfo.user_id = user.id
-    console.log('submit create form:', newInfo);
-    $http({
-        method: 'POST',
-        url: `${api}/comments`,
-        data: newInfo
-      }).then(response => {
-        console.log('Post New Tool Response:',response.data);
-        this.comments.push(response.data)
-      }, error => {
-        console.error(error.message);
-    }).catch(err => console.error('Catch', err));
+    if (user.logged) {
+      newInfo.tool_id = this.id
+      newInfo.user_id = user.id
+      newInfo.user_name = user.username
+      newIngo.user_img = user.img
+      console.log('submit create form:', newInfo);
+      // $http({
+      //     method: 'POST',
+      //     url: `${api}/comments`,
+      //     data: newInfo
+      //   }).then(response => {
+      //     console.log('Post New Tool Response:',response.data);
+      //     this.comments.push(response.data)
+      //   }, error => {
+      //     console.error(error.message);
+      // }).catch(err => console.error('Catch', err));
+    }
   };
 
   this.selectTag = (id) => {
@@ -63,5 +71,12 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
     $scope.$parent.ctrl.tool = this.tool
     $location.path('/toolie/edit')
   }
+
+  //Listen for login
+  $scope.$on('updateAuth', (data) => {
+    // console.log('listener');
+    this.user = user;
+    this.user.logged = true;
+  })
 
 }]);

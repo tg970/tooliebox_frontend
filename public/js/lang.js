@@ -1,4 +1,5 @@
 app.controller('LangController', [ '$http', '$route', '$scope', '$location', function($http, $route, $scope, $location) {
+  this.user = user;
   this.id = $scope.$parent.ctrl.lang.id
   this.searchterm = "";
   $http({
@@ -38,5 +39,12 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
         console.error(error.message);
     }).catch(err => console.error('Catch', err));
   }
+
+  //Listen for login
+  $scope.$on('updateAuth', (data) => {
+    // console.log('listener');
+    this.user = user;
+    this.user.logged = true;
+  })
 
 }]);

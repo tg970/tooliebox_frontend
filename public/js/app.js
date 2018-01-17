@@ -48,18 +48,9 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
 
   // Logout
   this.logout = () => {
-    $http({ url: '/sessions/logout', method: 'delete' })
-    .then((response) => {
-       user = {};
-       this.user = null;
-       this.userName = null;
-       $scope.$broadcast('logout', { data: this.user })
-       $location.path('/');
-    }, ex => {
-       console.log('ex', ex.data.err);
-       this.loginError = ex.statusText;
-    })
-    .catch(err => this.loginError = 'Something went wrong' );
+    console.log('logout');
+    localStorage.clear('token');
+    location.reload();
   }
 
   this.openLogin = (ev) => {
@@ -82,7 +73,7 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
           user = response.data.user
           user.logged = true
           this.user = user;
-          // $scope.$broadcast('updateAuth', { data: this.user })
+          $scope.$broadcast('updateAuth', { data: this.user })
         }, (error) => {
           console.log('login error:', error);
           this.openLogin(ev)
