@@ -1,19 +1,13 @@
 <div class="mainContent">
   <div class="getStarted">
     <h1>Getting Started</h1>
-    <p>Find code snippets by language, technology or search...</p>
+    <p>Find code snippets by language or technology...</p>
   </div>
   <div class="logoWrapper">
     <md-whiteframe class="logo" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 20" ng-mouseleave="height = 5" ng-repeat="lang in ctrl.langs">
-      <a ng-href="/language"><md-tooltip md-delay="ctrl.delayTooltip">{{lang.name}}</md-tooltip><div ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div></a>
+      <a ng-href="/language"><md-tooltip class="toolTip" md-delay="ctrl.delayTooltip">{{lang.name}}</md-tooltip><div ng-include="lang.img_url" ng-click="ctrl.select(lang.id)"></div></a>
     </md-whiteframe>
   </div>
-  <div class="search">
-    <md-content layout="column" layout-padding>
-      <md-input-container style="padding-bottom: 0; margin-bottom: 0">
-         <md-icon class="material-icons">&#128270;</md-icon>
-         <input ng-model="search.notes" placeholder="Search">
-      </md-input-container>
-    </md-content>
-  </div>
+  <!-- Removed search bar and related functionality; to be included in a future release -->
+  <!-- Reference functionality can be found in tag search page front end/backend execution -->
 </div>

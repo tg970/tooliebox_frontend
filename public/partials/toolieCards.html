@@ -4,14 +4,13 @@
     <md-card-title class="topText">
       <md-card-title-text>
         <a class="noLink" ng-href="/toolie"><span  ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
-        <span class="md-subhead"><small>Created by: {{tool.created_by}}</small></span>
+        <span class="md-subhead"><small><strong>Created by: </strong>{{tool.created_by}}</small></span>
         <div class="toolSubHead">
-          <span class="md-subhead toolSubHeadCtn"><small>Added to User's Tool Belts: ( {{tool.num_belts}} )</small></span>
+          <span class="md-subhead toolSubHeadCtn"><small><strong>In User's Toolbelts: </strong>( {{tool.num_belts}} )</small></span>
         </div>
         <span class="md-subhead">
-          <small><ul class=toolTags>
-            Tags:
-            <li class="toolTagsLi" ng-repeat="tag in tool.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}},</a></li>
+          <small><ul class=toolTags><strong>Tags:</strong>&nbsp;
+            <li class="toolTagsLi" ng-repeat="tag in tool.tags" ng-click="ctrl.selectTag(tag.id)"><a  class="noLink" href="/tag">{{tag.text}}&nbsp;</a></li>
           </ul></small>
         </span>
       </md-card-title-text>
@@ -21,7 +20,7 @@
     </md-card-content>
   </div>
   <md-card-actions class="oneToolBtns" layout="column" layout-align="center center">
-    <md-button ng-href="/toolie" ng-click="ctrl.select(tool.id)">Show More</md-button>
-    <md-button ng-click="ctrl.addToBelt(tool.id)">Add to MyBelt</md-button>
+    <md-button class="addToolBelt"  ng-click="ctrl.addToBelt(tool.id)">+ My ToolBelt</md-button>
+    <md-button class="showMore" ng-href="/toolie" ng-click="ctrl.select(tool.id)">Show More</md-button>
   </md-card-actions>
 </md-card>

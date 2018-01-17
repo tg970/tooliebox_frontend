@@ -1,7 +1,7 @@
-<div class="createNewToolie">
-  <h1 class="createCTA">EditTool...</h1>
-  <p class="createSubhead">Edit the information below <br>or Cancel to go back</p>
-  <form name="newForm" class="createForm">
+<div class="editNewToolie">
+  <h1 class="editCTA">Edit Tool...</h1>
+  <p class="editSubhead">Edit the information below <br>or Cancel to go back</p>
+  <form name="newForm" class="editForm">
     <md-input-container class="md-block">
       <label>Language</label>
       <md-select name="type" ng-model="newInfo.language_id" required>
@@ -47,11 +47,13 @@
       </div>
     </md-input-container>
     <div class="submit">
-      <md-button type="submit" ng-click="ctrl.submitEdit(newInfo)">Submit</md-button>
+      <md-button class="editSubmit" type="submit" ng-click="ctrl.submitEdit(newInfo)">Submit</md-button>
     </div>
   </form>
-  <div class="submit cancelbtn">
-    <md-button class="md-raised md-accent" ng-href="/toolie">Cancel</md-button>
-    <md-button class="md-raised md-warn" ng-click="ctrl.openDelete($event)">Delete Toolie</md-button>
+  <div class="cancel-delete_wrapper">
+    <div class="submit cancelBtn">
+      <md-button class="md-raised" ng-href="/toolie">Cancel</md-button>
+      <md-button class="md-raised md-warn" ng-click="ctrl.openDelete($event)">Delete</md-button>
+    </div>
   </div>
 </div>

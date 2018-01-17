@@ -5,6 +5,7 @@ body {
   background-color: black;
   height: auto;
 }
+cursor: url(hand.cur), pointer;
 
 /* ----------------------- */
 /* LOGO STYLES */
@@ -83,7 +84,7 @@ md-tooltip {
 
 .getStarted h1 {
   font-family: 'Rock Salt', cursive;
-  font-size: 38px;
+  font-size: 42px;
   display: flex;
   justify-content: center;
   padding-top: 30px;
@@ -91,7 +92,7 @@ md-tooltip {
 
 .getStarted p {
   font-family: 'Architects Daughter', cursive;
-  font-size: 26px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   margin-top: -20px;
@@ -106,7 +107,7 @@ md-tooltip {
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
 }
 
 .logo {
@@ -116,15 +117,12 @@ md-tooltip {
   background-color: #FFF;
 }
 
-/* ----------------------- */
-/* SEARCH */
-.search {
-  max-width: 800px;
-  margin: auto;
-  padding-bottom: 100px;
-}
-md-content {
-  /* background: lightgrey; */
+.toolTip {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 16px;
+  paddling-left: 5px;
+  padding-right: 5px;
+  margin-top: -8px;
 }
 
 /* ----------------------- */

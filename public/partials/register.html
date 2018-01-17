@@ -14,7 +14,7 @@
       <label>Username</label>
       <input ng-model="newInfo.username" required>
       <div ng-messages="newInfo.username.$error">
-        <div ng-message="required">This is required</div>
+        <div ng-message="required">Username is required</div>
       </div>
     </md-input-container>
     <md-input-container class="md-block">
@@ -25,14 +25,14 @@
       </div>
     </md-input-container>
     <md-input-container class="md-block">
-      <label>Img</label>
+      <label>Image URL</label>
       <input ng-model="newInfo.img">
       <div ng-messages="newInfo.img.$error">
-        <div ng-message="required">Don't worry about it</div>
+        <div ng-message="required">Not required</div>
       </div>
     </md-input-container>
     <div class="submit">
-      <md-button type="submit" ng-click="submit(newInfo)">Submit</md-button>
+      <md-button class="login-regBtns" type="submit" ng-click="submit(newInfo)">Register</md-button>
     </div>
   </form>
 </md-dialog>

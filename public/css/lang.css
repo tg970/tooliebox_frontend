@@ -58,9 +58,13 @@
 .LangHeadWrapLinks {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 60px;
   margin-left: 80px;
   margin-right: 15px;
+}
+
+.createToolBtn {
+  background-color: #63cc51;
 }
 
 /* ----------------------- */
@@ -72,6 +76,11 @@
   align-items: center;
 }
 
+.spacer {
+  height: 80px;
+}
+
+
 /* ----------------------- */
 /* CARD STYLES FOR ONE TOOL */
 .oneTool {
@@ -79,6 +88,7 @@
   display: flex;
   flex-direction: row;
   padding-left: 20px;
+  padding-bottom: 10px;
 }
 
 .toolAvatar {
@@ -94,6 +104,10 @@
 .md-headline {
   font-family: 'Roboto', sans-serif;
   padding-bottom: 10px;
+}
+
+.md-headline:hover {
+  color: blue;
 }
 
 .md-subhead {
@@ -121,6 +135,14 @@
   width: 20%;
 }
 
+.showMore {
+  color: blue;
+}
+
+.addToolBelt {
+  color: green;
+}
+
 .toolTags {
   display: flex;
   flex-direction: row;
@@ -137,6 +159,10 @@
 .noLink {
   text-decoration: none;
   color: black;
+}
+
+.noLink:hover {
+  color: blue;
 }
 
 /* ----------------------- */
