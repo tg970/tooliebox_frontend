@@ -1,33 +1,35 @@
 <!-- SHOW ONE TOOL HEADER DETAIL -->
 <div class="tool_wrapper">
   <div class="toolHeader">
-    <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url">
+    <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.tool.lang_url">
     </div>
     <div class="toolDetail">
       <h1>{{ctrl.tool.title}}</h1>
       <h2>{{ctrl.tool.description}}</h2>
       <md-card-title-text>
-        <a class="noLink" ng-href="/toolie"><span  ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
-        <span class="md-subhead"><small>Created by: {{tool.created_by}}</small></span>
+        <span class="md-subhead"><small>Created by: {{ctrl.tool.created_by}}</small></span>
         <span class="md-subhead">
           <small><ul class=toolTags>
             Tags:
-            <li class="toolTagsLi" ng-repeat="tag in tool.tags"><a class="noLink" href="#">{{tag.text}},</a></li>
+            <li class="toolTagsLi" ng-repeat="tag in ctrl.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}},</a></li>
           </ul></small>
         </span>
       </md-card-title-text>
     </div>
     <div class="toolHeadWrapLinks">
-      <md-button ng-href="/toolie" ng-click="ctrl.select(tool.id)">Add to MyBelt</md-button>
-      <md-button class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
+      <md-button ng-click="ctrl.sumbit()">Add to MyBelt</md-button>
+      <md-button ng-if="ctrl.edit" ng-click="ctrl.editToolie()">Edit Toolie</md-button>
+      <md-button ng-if="ctrl.user.logged" class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
     </div>
   </div>
 
   <!-- REPL.IT IFRAMED SNIPPET CONTENT -->
-  <div class="iframeReplIt">
+  <div ng-if="ctrl.tool.repl" class="iframeReplIt">
     <iframe class="replFrame" height="400px" width="80%" ng-src= "{{ ctrl.tool.repl_url| trustUrl }}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
   </div>
-
+  <div style="text-align:center" ng-hide="ctrl.tool.repl" class="noRepl">
+    <a target="_blank" href="{{ctrl.tool.link_url}}"><h2>{{ctrl.tool.link_url}}</h2></a>
+  </div>
  <!-- COMMENTS -->
  <div class="comments_container">
    <div class="newcomment_div">
@@ -54,20 +56,15 @@
    <div class="commentsWrapper">
      <md-list class="commentsList">
        <md-list-item class="md-2-line comment" ng-repeat="comment in ctrl.comments">
-         <img ng-src="/img/avatar.jpg" class="md-avatar" alt="img" />
+         <img ng-src="{{comment.img}}" class="md-avatar" alt="img" />
          <div class="md-list-item-text">
            <h3>{{comment.text}}</h3>
-           <p>{{comment.user_id}}</p>
+           <p>{{comment.name}}</p>
          </div>
        </md-list-item>
      </md-list>
    </div>
    <md-divider ></md-divider>
-   <!-- <div class="comment" ng-repeat="comment in ctrl.comments">
-     <img class="comment_img" ng-src="{{comment.user.img}}" alt="">
-     <h3 class="comment_h3">{{comment.text}}</h3>
-     <h3 class="comment_user">{{comment.user.username}}</h3>
-   </div> -->
 </div>
 
 <!-- end tool container -->

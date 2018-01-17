@@ -1,6 +1,6 @@
 <div class="lang_wrapper">
   <div class="langHeader">
-    <a href="{{ctrl.lang.dox_url}}">
+    <a href="{{ctrl.lang.dox_url}}" target="_blank">
       <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.lang.img_url">
       </div>
     </a>
@@ -12,10 +12,11 @@
         </div>
       </div>
       <div class="LangHeadWrapLinks">
-        <md-button ng-href="{{ctrl.lang.dox_url}}" target="_blank">Dev Documentation</md-button>
-        <md-button class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
+        <md-button ng-if="ctrl.user.logged" class="createToolBtn" class="md-raised" md-whiteframe="2" ng-href="/toolie/create">Create a Tool</md-button>  
+        <md-button ng-href="{{ctrl.lang.dox_url}}" class="md-raised" target="_blank">Dev Documentation</md-button>
       </div>
     </div>
   </div>
   <div class="toolsWrapper" ng-include="'partials/toolieCards.html'"></div>
+  <div class="spacer"></div>
 </div>

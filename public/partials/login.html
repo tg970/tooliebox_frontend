@@ -1,17 +1,16 @@
-<md-dialog aria-label="Create a New System" layout="column" class="md-inline-form">
+<md-dialog aria-label="Login Dialog" layout="column" class="login">
   <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Login</h2>
-        <span flex></span>
-        <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon aria-label="Close dialog"><i class="fas fa-times"></i></md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
-  <md-content layout-padding>
+    <div class="md-toolbar-tools">
+      <h2>Login</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon aria-label="Close dialog"><i class="fas fa-times"></i></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding >
     <div>
       <form name="newForm">
-
         <md-input-container class="md-block">
           <label>Username</label>
           <input ng-model="newInfo.username" required>
@@ -19,17 +18,19 @@
             <div ng-message="required">This is required.</div>
           </div>
         </md-input-container>
-
         <md-input-container class="md-block">
           <label>Password</label>
-          <input ng-model="newInfo.password" required>
+          <input type="password" ng-model="newInfo.password" required>
           <div ng-messages="newInfo.password.$error">
             <div ng-message="required">This is required.</div>
           </div>
         </md-input-container>
-
         <div class="submit">
-          <md-button type="submit" ng-click="submit(newInfo)">Login</md-button>
+          <md-button class="login-regBtns" type="submit" ng-click="submit(newInfo)">Login</md-button>
         </div>
       </form>
+      <div ng-if="ctrl.error" class="">
+        {{ctrl.message}}
+      </div>
+    </div>
 </md-dialog>
