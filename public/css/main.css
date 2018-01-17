@@ -60,6 +60,9 @@ p {
 .register {
   width: 25em;
 }
+md-tooltip {
+  margin-top: -.75em;
+}
 
 /* ----------------------- */
 /* MAIN CONTENT AREA */
