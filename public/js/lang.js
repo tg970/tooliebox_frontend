@@ -3,7 +3,7 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
   this.searchterm = "";
   $http({
       method: 'GET',
-      url: `${api}/${this.id}`
+      url: `${api}/languages/${this.id}`
     }).then(response => {
       console.log('oneLang:',response.data);
       this.lang = response.data;
