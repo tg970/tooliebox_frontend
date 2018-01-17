@@ -4,6 +4,7 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   this.selectLang = $scope.$parent.ctrl.langs;
   this.repl = true;
   this.showIcons = false;
+  this.user = user
 
   this.select = (id) => {
     $scope.$parent.ctrl.tool.id = id

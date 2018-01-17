@@ -72,6 +72,7 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
           console.log('response:', response.data);
           if (response.data.status == 200) {
             console.log('succesful login');
+            localStorage.setItem('token', JSON.stringify(response.data.token));
             user = response.data.user
             user.tools = response.data.tools
             user.logged = true
