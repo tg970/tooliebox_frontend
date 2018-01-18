@@ -18,7 +18,7 @@
     </div>
     <div class="toolHeadWrapLinks">
       <md-button ng-if="ctrl.user.logged" class="createToolBtn" class="md-raised" ng-href="/toolie/create">Create a New Tool</md-button>
-      <md-button ng-if="ctrl.edit" class="md-raised" ng-click="ctrl.editToolie()">Edit This Toolie</md-button>
+      <md-button ng-if="ctrl.edit" ng-click="ctrl.editToolie()">Edit This Toolie</md-button>
       <md-button ng-if="!ctrl.belted" class="addToolBelt" ng-click="ctrl.addToBelt(ctrl.tool.id)">+ My Toolbelt</md-button>
       <md-button ng-if="ctrl.belted" class="addToolBelt"  ng-click="ctrl.removeBelt(ctrl.tool.id)">- Remove ToolBelt</md-button>
     </div>

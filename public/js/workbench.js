@@ -22,6 +22,8 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
     if ($scope.newInfo.repl_url) {
       this.repl = true
       $scope.newInfo.repl = "true"
+    } else {
+      $scope.newInfo.repl = "false"
     }
     console.log('newInfo:', $scope.newInfo);
   };
