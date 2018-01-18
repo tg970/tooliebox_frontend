@@ -1,10 +1,6 @@
 /* FONT IMPORTS */
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 
-* {
-  border: 1px solid gold;
-}
-
 body {
   background-color: black;
   height: auto;
