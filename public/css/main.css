@@ -27,9 +27,9 @@ cursor: url(hand.cur), pointer;
             3px -1px 5px rgb(21, 114, 182);
 }
 
-.tooliebox:hover h1 {
+/* .tooliebox:hover h1 {
   transform: scale(1.2);
-}
+} */
 
 /* ----------------------- */
 /* NAVIGATION STYLES */
