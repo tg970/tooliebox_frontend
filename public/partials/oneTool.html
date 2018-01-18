@@ -17,15 +17,9 @@
       </md-card-title-text>
     </div>
     <div class="toolHeadWrapLinks">
-<<<<<<< HEAD
-      <md-button class="createToolBtn" class="md-raised" ng-href="/toolie/create">Create a New Tool</md-button>
-      <md-button class="md-raised"ng-click="ctrl.editToolie()">Edit This Toolie</md-button>
-      <md-button class="addToolBelt" ng-href="#" ng-click="ctrl.sumbit()">+ My Toolbelt</md-button>
-=======
-      <md-button ng-click="ctrl.sumbit()">Add to MyBelt</md-button>
-      <md-button ng-if="ctrl.edit" ng-click="ctrl.editToolie()">Edit Toolie</md-button>
-      <md-button ng-if="ctrl.user.logged" class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
->>>>>>> 5fe6ca3aaacff3e230de783933a10587435a9c6b
+      <md-button ng-if="ctrl.user.logged" class="createToolBtn" class="md-raised" ng-href="/toolie/create">Create a New Tool</md-button>
+      <md-button ng-if="ctrl.edit" class="md-raised" ng-click="ctrl.editToolie()">Edit This Toolie</md-button>
+      <md-button class="addToolBelt" ng-click="ctrl.sumbit()">+ My Toolbelt</md-button>
     </div>
     <div class="spacer"></div>
   </div>
