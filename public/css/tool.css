@@ -1,7 +1,7 @@
 /* ----------------------- */
 /* ONE TOOL */
 .tool_wrapper {
-  height: auto;
+  height: 100%;
   max-width: 1100px;
   background: #fff;
   margin: auto;
@@ -18,7 +18,7 @@
 }
 
 .toolDetail {
-  margin-left: 30px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -74,25 +74,34 @@
 
 /* ----------------------- */
 /* COMMENTS */
-.comments_container{
+.comments_container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.newcomment_div{
+
+.newcomment_div {
   width: 600px;
 }
-.comment_form{
+
+.comment_form {
   width: 100%;
 }
+
 .commentInput {
   width: 80%;
 }
-.commentSubmit{
+
+.commentSubmit {
   width: 20%;
 }
+
+.commentSubmitBtn {
+  background-color: #63cc51;
+}
+
 .commentsWrapper {
   display: flex;
   flex-direction: column;
@@ -100,6 +109,7 @@
   align-items: center;
   width: 100%;
 }
+
 .commentsList {
   display: flex;
   flex-direction: column;
@@ -107,6 +117,7 @@
   align-items: center;
   width: 600px;
 }
-.comment{
+
+.comment {
   width: 100%;
 }

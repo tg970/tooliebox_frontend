@@ -1,6 +1,10 @@
 /* FONT IMPORTS */
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 
+* {
+  border: 1px solid gold;
+}
+
 body {
   background-color: black;
   height: auto;
@@ -29,7 +33,6 @@ cursor: url(hand.cur), pointer;
 /* NAVIGATION STYLES */
 nav {
   max-width: 1100px;
-  padding-top: 15px;
   height: 100px;
   margin: auto;
   background-color: black;
@@ -47,7 +50,8 @@ nav {
 
 .navBox {
   width: 250px;
-  margin-right: 5em;
+  maring-top: 20px;
+  margin-right: 4em;
 }
 
 p {
