@@ -40,7 +40,6 @@ function DeleteController($scope, $mdDialog) {
 app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', function($http, $scope, $location, $mdDialog) {
   // User States:
   this.user = user;
-  this.showLogin = false;
   this.lang = {};
   this.tool = {};
   this.message = null;

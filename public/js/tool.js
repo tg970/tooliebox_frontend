@@ -30,10 +30,12 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
       if (this.user.username == this.tool.created_by) {
         this.edit = true;
       }
-      if (user.arrTool.includes(this.tool.id)) {
-        this.belted = true;
-      } else {
-        this.belted = false
+      if (user.logged) {
+        if (user.arrTool.includes(this.tool.id)) {
+          this.belted = true;
+        } else {
+          this.belted = false
+        }
       }
     }, error => {
       console.error(error.message);
@@ -55,9 +57,13 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
         }).then(response => {
           console.log('Post New COMMENT Response:',response.data);
           this.comments.push(response.data)
+          $scope.newInfo.text = ' '
         }, error => {
           console.error(error.message);
       }).catch(err => console.error('Catch', err));
+    } else {
+      console.log($scope.$parent.ctrl);
+      $scope.$parent.ctrl.openLogin();
     }
   };
 
