@@ -6,7 +6,12 @@
     <md-button ng-if="!ctrl.user.logged"  ng-click="ctrl.openLogin($event)">Login</md-button>
     <md-button ng-if="ctrl.user.logged" class="navWorkbench" ng-href="/workbench">Workbench</md-button>
     <p>|</p>
+<<<<<<< HEAD
     <md-button ng-if="ctrl.user.logged"  ng-click="ctrl.logout">Logout</md-button>
     <md-button ng-if="!ctrl.user.logged" class="navReg" ng-click="ctrl.openRegister($event)">Register</md-button>
+=======
+    <md-button ng-if="ctrl.user.logged" class="navBtn" ng-click="ctrl.logout()">Logout</md-button>
+    <md-button ng-if="!ctrl.user.logged" class="navBtn" ng-click="ctrl.openRegister($event)">Register</md-button>
+>>>>>>> 5fe6ca3aaacff3e230de783933a10587435a9c6b
   </div>
 </div>
