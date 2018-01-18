@@ -183,6 +183,12 @@
   padding-top: 35px;
   font-family: 'Rock Salt', cursive;
   font-size: 40px;
+  text-shadow:
+            -2px 2px 1px #FEFEFE,
+            -5px 5px 10px rgb(21, 114, 182),
+            0px 4px 5px rgb(21, 114, 182),
+            4px 4px 5px rgb(21, 114, 182),
+            3px -1px 5px rgb(21, 114, 182);
 }
 
 .findTags {

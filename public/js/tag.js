@@ -95,7 +95,9 @@ app.controller("TagController", [ '$http', '$route', '$scope', '$location', func
   };
   this.getAllTags();
 
-
+  this.select = (id) => {
+    $scope.$parent.ctrl.tool.id = id
+  }
 
 
 
