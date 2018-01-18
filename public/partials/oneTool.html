@@ -1,7 +1,7 @@
 <!-- SHOW ONE TOOL HEADER DETAIL -->
 <div class="tool_wrapper">
   <div class="toolHeader">
-    <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-include="ctrl.tool.lang_url">
+    <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-click="ctrl.back()" ng-include="ctrl.tool.lang_url"><md-tooltip md-delay="500" class="toolTip">Back...</md-tooltip>
     </div>
     <div class="toolDetail">
       <h1>{{ctrl.tool.title}}</h1>

@@ -127,6 +127,11 @@ app.controller('ToolController', ['$http', '$scope', '$location', function($http
     }
   }
 
+  this.back = () => {
+    console.log('back');
+    window.history.back();
+  }
+
   //Listen for login
   $scope.$on('updateAuth', (data) => {
     // console.log('listener');
