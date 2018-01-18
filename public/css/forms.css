@@ -70,6 +70,12 @@
   font-size: 38px;
   color: black;
   text-align: center;
+  text-shadow:
+            -1px 1px 1px #FEFEFE,
+            -5px 5px 10px #FF413A,
+            0px 4px 5px #FF413A,
+            4px 4px 5px #FF413A,
+            3px -1px 5px #FF413A;
 }
 
 .editSubhead {
