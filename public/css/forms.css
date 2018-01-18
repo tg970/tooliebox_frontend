@@ -24,6 +24,12 @@
   font-size: 38px;
   color: black;
   text-align: center;
+  text-shadow:
+            -2px 2px 1px black,
+            -5px 5px 10px #FEFEFE,
+            0px 4px 5px #FEFEFE,
+            4px 4px 5px #FEFEFE,
+            3px -1px 5px #FEFEFE;
 }
 
 .createSubhead {
