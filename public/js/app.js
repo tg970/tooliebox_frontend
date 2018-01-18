@@ -127,6 +127,22 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
     });
   }
 
+  // this.add = () => {
+  //   let newInfo = {}
+  //   newInfo.name = 'Angular'
+  //   newInfo.img_url = '/img/svg/angular.svg'
+  //   newInfo.dox_url = 'https://angularjs.org/'
+  //   $http({
+  //       method: 'POST',
+  //       url: `${api}/languages`,
+  //       data: newInfo
+  //     }).then(response => {
+  //       console.log('response:', response);
+  //     }, (error) => {
+  //       console.log('error:', error);
+  //     }).catch(err => console.error('Catch', err))
+  // }
+
 }]);
 
 app.config(['$routeProvider','$locationProvider', '$mdThemingProvider', function($routeProvider,$locationProvider, $mdThemingProvider) {
