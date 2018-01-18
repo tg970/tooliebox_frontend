@@ -20,7 +20,8 @@
     </md-card-content>
   </div>
   <md-card-actions class="oneToolBtns" layout="column" layout-align="center center">
-    <md-button class="addToolBelt"  ng-click="ctrl.addToBelt(tool.id)">+ My ToolBelt</md-button>
+    <md-button ng-if="ctrl.user.logged && !tool.belted" class="addToolBelt"  ng-click="ctrl.addToBelt(tool.id)">+ My ToolBelt</md-button>
+    <md-button ng-if="ctrl.user.logged && tool.belted" class="addToolBelt"  ng-click="ctrl.removeBelt(tool.id)">- Remove ToolBelt</md-button>
     <md-button class="showMore" ng-href="/toolie" ng-click="ctrl.select(tool.id)">Show More</md-button>
   </md-card-actions>
 </md-card>

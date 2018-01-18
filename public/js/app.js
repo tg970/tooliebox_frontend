@@ -75,6 +75,11 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
             localStorage.setItem('token', JSON.stringify(response.data.token));
             user = response.data.user
             user.tools = response.data.tools
+            user.toolBelts = response.data.toolbelts
+            user.arrTool = []
+            for (let tool of user.tools) {
+              user.arrTool.push(tool.id)
+            }
             user.logged = true
             console.log(user);
             this.user = user;

@@ -6,21 +6,23 @@
     <div class="toolDetail">
       <h1>{{ctrl.tool.title}}</h1>
       <h2>{{ctrl.tool.description}}</h2>
+      &nbsp;
       <md-card-title-text>
-        <span class="md-subhead"><small>Created by: {{ctrl.tool.created_by}}</small></span>
+        <span class="md-subhead"><small><strong>Created by: </strong>{{ctrl.tool.created_by}}</small></span>
         <span class="md-subhead">
-          <small><ul class=toolTags>
-            Tags:
-            <li class="toolTagsLi" ng-repeat="tag in ctrl.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}},</a></li>
+          <small><ul class=toolTags><strong>Tags:</strong>&nbsp;
+            <li class="toolTagsLi" ng-repeat="tag in ctrl.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}}&nbsp;</a></li>
           </ul></small>
         </span>
       </md-card-title-text>
     </div>
     <div class="toolHeadWrapLinks">
-      <md-button ng-click="ctrl.sumbit()">Add to MyBelt</md-button>
-      <md-button ng-if="ctrl.edit" ng-click="ctrl.editToolie()">Edit Toolie</md-button>
-      <md-button ng-if="ctrl.user.logged" class="md-primary" ng-href="/toolie/create">Create a Tool</md-button>
+      <md-button ng-if="ctrl.user.logged" class="createToolBtn" class="md-raised" ng-href="/toolie/create">Create a New Tool</md-button>
+      <md-button ng-if="ctrl.edit" class="md-raised" ng-click="ctrl.editToolie()">Edit This Toolie</md-button>
+      <md-button ng-if="!ctrl.belted" class="addToolBelt" ng-click="ctrl.addToBelt(ctrl.tool.id)">+ My Toolbelt</md-button>
+      <md-button ng-if="ctrl.belted" class="addToolBelt"  ng-click="ctrl.removeBelt(ctrl.tool.id)">- Remove ToolBelt</md-button>
     </div>
+    <div class="spacer"></div>
   </div>
 
   <!-- REPL.IT IFRAMED SNIPPET CONTENT -->
@@ -42,7 +44,7 @@
          </div>
        </md-input-container>
        <div class="submit commentSubmit">
-         <md-button type="submit" ng-click="ctrl.submit(newInfo)">Submit</md-button>
+         <md-button class= "commentSubmitBtn" type="submit" ng-click="ctrl.submit(newInfo)">Submit</md-button>
        </div>
      </form>
    </div>
