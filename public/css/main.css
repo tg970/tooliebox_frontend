@@ -21,6 +21,10 @@ cursor: url(hand.cur), pointer;
   margin-left: 2em;
 }
 
+.tooliebox:hover h1 {
+  transform: scale(1.2);
+}
+
 /* ----------------------- */
 /* NAVIGATION STYLES */
 nav {
