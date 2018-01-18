@@ -42,16 +42,22 @@ nav {
 }
 
 .navBox {
-  width: 10em;
+  width: 250px;
   margin-right: 5em;
 }
 
 p {
   font-size: 22px;
+  margin-left: 12px;
+  margin-top: 20px;
 }
 
-.navBtn {
-  margin: 1em;
+.navWorkbench {
+  margin-top: 20px;
+}
+
+.navReg {
+  margin-left: 30px;
 }
 
 .login {
