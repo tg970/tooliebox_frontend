@@ -41,6 +41,7 @@ app.controller('BodyController', ['$http', '$scope', '$location', '$mdDialog', f
   // User States:
   this.user = user;
   this.lang = {};
+  this.langs = [];
   this.tool = {};
   this.message = null;
   if (user.logged) {

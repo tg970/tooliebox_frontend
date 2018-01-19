@@ -27,9 +27,10 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
   }
   this.getLang()
 
-  this.select = (id) => {
-    $scope.$parent.ctrl.tool.id = id
-    $scope.$parent.ctrl.lang = this.lang
+  this.select = (tool) => {
+    $scope.$parent.ctrl.tool = tool
+    //$scope.$parent.ctrl.lang = this.lang
+    $location.path('/toolie')
   }
 
   this.selectTag=(id) => {
@@ -68,7 +69,7 @@ app.controller('LangController', [ '$http', '$route', '$scope', '$location', fun
         removeArrTool = user.arrTool.indexOf(belt.tool_id)
         beltId = belt.id
         break
-      } 
+      }
     }
     if (beltId) {
       $http({
