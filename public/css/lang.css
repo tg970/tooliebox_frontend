@@ -32,6 +32,7 @@
   margin-left: 35px;
   font-family: 'Architects Daughter', cursive;
   font-size: 40px;
+  cursor: default;
 }
 
 .LangHeadWrapTtlTools {
@@ -45,6 +46,7 @@
   margin-left: 35px;
   font-family: 'Architects Daughter', cursive;
   font-size: 24px;
+  cursor: default;
 }
 
 .LangHeadWrap h2 {
@@ -53,6 +55,7 @@
   font-family: 'Architects Daughter', cursive;
   font-size: 32px;
   margin-left: 20px;
+  cursor: default;
 }
 
 .LangHeadWrapLinks {
@@ -159,10 +162,15 @@
 .noLink {
   text-decoration: none;
   color: black;
+  cursor: pointer !important;
 }
 
 .noLink:hover {
   color: blue;
+}
+
+.cursor {
+  cursor: default;
 }
 
 /* ----------------------- */

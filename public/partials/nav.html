@@ -1,6 +1,8 @@
 <div class="nav">
   <div class="tooliebox">
-    <a class="noLink" href="/"><h1>ToolieBox</h1></a>
+    <a class="noLink" href="/"><h1><md-tooltip class="toolTip"
+      md-delay="1000">Home
+    </md-tooltip>ToolieBox</h1></a>
   </div>
   <div class="navBox">
     <md-button ng-if="!ctrl.user.logged"  ng-click="ctrl.openLogin($event)">Login</md-button>

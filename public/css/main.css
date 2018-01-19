@@ -104,6 +104,7 @@ md-tooltip {
   display: flex;
   justify-content: center;
   padding-top: 30px;
+  cursor: default;
 }
 
 .getStarted p {
@@ -113,6 +114,7 @@ md-tooltip {
   justify-content: center;
   margin-top: -20px;
   margin-bottom: 40px;
+  cursor: default;
 }
 
 /* ----------------------- */
@@ -131,6 +133,7 @@ md-tooltip {
   height: 200px;
   margin: 1em;
   background-color: #FFF;
+  cursor: pointer;
 }
 
 .toolTip {
