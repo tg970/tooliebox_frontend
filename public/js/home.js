@@ -15,7 +15,7 @@ app.controller('HomeController', [ '$http', '$route', '$scope', '$location', '$m
       console.error(error.message);
   }).catch(err => console.error('Catch', err));
 
-  this.select = (id) => {
-    $scope.$parent.ctrl.lang.id = id
+  this.select = (lang) => {
+    $scope.$parent.ctrl.lang = lang
   }
 }]);

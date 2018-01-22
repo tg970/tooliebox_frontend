@@ -3,25 +3,26 @@
   <div class="oneToolContent">
     <md-card-title class="topText">
       <md-card-title-text>
-        <a class="noLink" ng-href="/toolie"><span  ng-click="ctrl.select(tool.id)" class="md-headline">{{tool.title}}</span></a>
-        <span class="md-subhead"><small><strong>Created by: </strong>{{tool.created_by}}</small></span>
+        <a class="noLink">
+          <span ng-click="ctrl.select(tool)" class="md-headline"><md-tooltip class="toolTip" md-delay="1000" md-direction="top">Show More Info About This Tool</md-tooltip>{{tool.title}}</span></a>
+        <span class="md-subhead"><small class="cursor"><strong class="cursor">Created by: </strong>{{tool.created_by}}</small></span>
         <div class="toolSubHead">
-          <span class="md-subhead toolSubHeadCtn"><small><strong>In User's Toolbelts: </strong>( {{tool.num_belts}} )</small></span>
+          <span class="md-subhead toolSubHeadCtn"><small class="cursor"><strong class="cursor">In User's Toolbelts: </strong>( {{tool.num_belts}} )</small></span>
         </div>
         <span class="md-subhead">
-          <small><ul class=toolTags><strong>Tags:</strong>&nbsp;
+          <small><ul class=toolTags><strong class="cursor">Tags:</strong>&nbsp;
             <li class="toolTagsLi" ng-repeat="tag in tool.tags" ng-click="ctrl.selectTag(tag.id)"><a  class="noLink" href="/tag">{{tag.text}}&nbsp;</a></li>
           </ul></small>
         </span>
       </md-card-title-text>
     </md-card-title>
     <md-card-content>
-      <p class="toolDesc" md-truncate>{{tool.description}}</p>
+      <p class="cursor" class="toolDesc" md-truncate>{{tool.description}}</p>
     </md-card-content>
   </div>
   <md-card-actions class="oneToolBtns" layout="column" layout-align="center center">
     <md-button ng-if="ctrl.user.logged && !tool.belted" class="addToolBelt"  ng-click="ctrl.addToBelt(tool.id)">+ My ToolBelt</md-button>
     <md-button ng-if="ctrl.user.logged && tool.belted" class="addToolBelt"  ng-click="ctrl.removeBelt(tool.id)">- Remove ToolBelt</md-button>
-    <md-button class="showMore" ng-href="/toolie" ng-click="ctrl.select(tool.id)">Show More</md-button>
+    <md-button class="showMore" ng-click="ctrl.select(tool)">Show More</md-button>
   </md-card-actions>
 </md-card>

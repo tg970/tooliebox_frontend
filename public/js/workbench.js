@@ -6,8 +6,15 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
   this.showIcons = false;
   this.user = user
 
-  this.select = (id) => {
-    $scope.$parent.ctrl.tool.id = id
+  this.select = (tool) => {
+    $scope.$parent.ctrl.tool = tool
+    for (let lang of $scope.$parent.ctrl.langs) {
+      if (lang.id == tool.id) {
+        $scope.$parent.ctrl.lang = lang;
+        break
+      }
+    }
+    $location.path('/toolie')
   }
 
   this.selectTag=(id) => {
@@ -125,10 +132,6 @@ app.controller('WorkBenchController', [ '$http', '$scope', '$location', '$mdDial
     }, function() {
       console.log('cancel dialog');;
     });
-  }
-
-  this.select = (id) => {
-    $scope.$parent.ctrl.lang.id = id
   }
 
   this.removeBelt = (id) => {

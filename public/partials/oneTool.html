@@ -1,16 +1,25 @@
 <!-- SHOW ONE TOOL HEADER DETAIL -->
 <div class="tool_wrapper">
   <div class="toolHeader">
-    <div class="logo" md-whiteframe="{{height}}" ng-init="height = 10" ng-mouseenter="height = 20" ng-mouseleave="height = 10" ng-click="ctrl.back()" ng-include="ctrl.tool.lang_url"><md-tooltip md-delay="500" class="toolTip">Back...</md-tooltip>
+    <div class="logo"
+      md-whiteframe="{{height}}"
+      ng-init="height = 10"
+      ng-mouseenter="height = 20"
+      ng-mouseleave="height = 10"
+      ng-click="ctrl.back()"
+      ng-include="ctrl.tool.lang_url">
+      <md-tooltip class="toolTip"
+        md-delay="250">Back...
+      </md-tooltip>
     </div>
     <div class="toolDetail">
       <h1>{{ctrl.tool.title}}</h1>
       <h2>{{ctrl.tool.description}}</h2>
       &nbsp;
       <md-card-title-text>
-        <span class="md-subhead"><small><strong>Created by: </strong>{{ctrl.tool.created_by}}</small></span>
+        <span class="md-subhead"><small class="cursor"><strong class="cursor">Created by: </strong>{{ctrl.tool.created_by}}</small></span>
         <span class="md-subhead">
-          <small><ul class=toolTags><strong>Tags:</strong>&nbsp;
+          <small><ul class=toolTags><strong class="cursor">Tags:</strong>&nbsp;
             <li class="toolTagsLi" ng-repeat="tag in ctrl.tags" ng-click="ctrl.selectTag(tag.id)"><a class="noLink" href="/tag">{{tag.text}}&nbsp;</a></li>
           </ul></small>
         </span>
@@ -55,7 +64,7 @@
        background-size: 100% 100%;
      }
    </style>
-   <div class="commentsWrapper">
+   <div class="cursor commentsWrapper">
      <md-list class="commentsList">
        <md-list-item class="md-2-line comment" ng-repeat="comment in ctrl.comments">
          <img ng-src="{{comment.img}}" class="md-avatar" alt="img" />
