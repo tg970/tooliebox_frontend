@@ -3,6 +3,7 @@ app.controller('HomeController', [ '$http', '$route', '$scope', '$location', '$m
   console.log('HomeController:', CtrlUrl);
   this.test = "hello"
   this.delayTooltip = 500;
+  this.showLoading = true;
 
   $http({
       method: 'GET',
@@ -10,7 +11,8 @@ app.controller('HomeController', [ '$http', '$route', '$scope', '$location', '$m
     }).then(response => {
       console.log('allLangs:',response.data);
       this.langs = response.data;
-      $scope.$parent.ctrl.langs = response.data
+      $scope.$parent.ctrl.langs = response.data;
+      this.showLoading = false;
     }, error => {
       console.error(error.message);
   }).catch(err => console.error('Catch', err));

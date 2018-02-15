@@ -2,6 +2,8 @@
   <div class="getStarted">
     <h1>Getting Started</h1>
     <p>Find code snippets by language or technology...</p>
+    <md-progress-circular md-mode="indeterminate" md-diameter="96" ng-if="ctrl.showLoading"></md-progress-circular>
+    <p class="startUp" ng-if="ctrl.showLoading">Hang on one sec, the ToolieBox Api is starting up!</p>
   </div>
   <div class="logoWrapper">
     <md-whiteframe class="logo" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 20" ng-mouseleave="height = 5" ng-repeat="lang in ctrl.langs">

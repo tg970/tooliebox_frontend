@@ -96,6 +96,7 @@ md-tooltip {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .getStarted h1 {
@@ -117,6 +118,9 @@ md-tooltip {
   cursor: default;
 }
 
+.startUp {
+  transform: translate(0em, 2em);
+}
 /* ----------------------- */
 /* ICONOGRAPHIC MENU */
 .logoWrapper {
