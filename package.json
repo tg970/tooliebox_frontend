@@ -18,13 +18,13 @@
   },
   "homepage": "https://github.com/tg970/tooliebox_frontend#readme",
   "dependencies": {
-    "bcrypt": "^3.0.0",
-    "dotenv": "^5.0.1",
-    "express": "^4.16.4",
-    "express-session": "^1.15.6",
-    "mongoose": "^5.4.11",
-    "morgan": "^1.9.1",
-    "pretty-error": "^2.1.1",
-    "request": "^2.88.0"
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.x.x",
+    "express": "^4.x.x",
+    "express-session": "^1.x.x",
+    "mongoose": "^5.x.x",
+    "morgan": "^1.x.x",
+    "pretty-error": "^2.x.x",
+    "request": "^2.x.x"
   }
 }
